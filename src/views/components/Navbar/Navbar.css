@@ -1,0 +1,10 @@
+.logo {
+  height: 40px;
+}
+
+.navbar-container {
+  background-color: #7f6f68;
+  padding: 15px 25px;
+  border: 1px solid #7f6f68;
+  background-size: cover;
+}
