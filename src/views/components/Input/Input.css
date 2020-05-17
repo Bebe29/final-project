@@ -1,16 +1,17 @@
 :root {
     --accent-default: #7F6F68;
     --accent-disable: #94837C;
-    --accent-dark: #D7C3BB;
-    --accent-medium: #E9D8D0;
-    --accent-light: #F8EBE6;
-  }
+    --accent-dark: #B5A59E;
+    --accent-medium: #D7C3BB;
+    --accent-light: #E9D8D0;
+    --accent-very-light: #F8EBE6;
+}
 
 .input {
     background-color: #E9D8D0;
     border: #E9D8D0;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
     padding: 8px 15px;
     text-align: left;
     font-size: 14.5px;

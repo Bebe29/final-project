@@ -18,7 +18,12 @@ class NavbarUI extends Component {
           </Navbar.Brand>
           <Nav>
             <ButtonUI type="outline" className="mr-3">
-              Sign In
+              <Link
+                to="/login"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Sign In
+              </Link>
             </ButtonUI>
             <ButtonUI type="contain">
               <Link

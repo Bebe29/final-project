@@ -2,7 +2,7 @@ import React from "react";
 import "./Button.css";
 
 type ButtonType = {
-  type?: "contain" | "outline" | "text" | "disable";
+  type?: "contain" | "outline" | "text" | "disable" | "contain-dark";
   children: any;
   className?: string;
   onClick?: any;

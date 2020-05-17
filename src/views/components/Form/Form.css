@@ -1,10 +1,11 @@
 :root {
-    --accent-default: #7F6F68;
-    --accent-disable: #94837C;
-    --accent-dark: #D7C3BB;
-    --accent-medium: #E9D8D0;
-    --accent-light: #F8EBE6;
-  }
+  --accent-default: #7F6F68;
+  --accent-disable: #94837C;
+  --accent-dark: #B5A59E;
+  --accent-medium: #D7C3BB;
+  --accent-light: #E9D8D0;
+  --accent-very-light: #F8EBE6;
+}
 
 .form{
     background-color: #D7C3BB;

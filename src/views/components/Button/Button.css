@@ -1,9 +1,10 @@
 :root {
   --accent-default: #7F6F68;
   --accent-disable: #94837C;
-  --accent-dark: #D7C3BB;
-  --accent-medium: #E9D8D0;
-  --accent-light: #F8EBE6;
+  --accent-dark: #B5A59E;
+  --accent-medium: #D7C3BB;
+  --accent-light: #E9D8D0;
+  --accent-very-light: #F8EBE6;
 }
 
 .custom-btn {
@@ -80,4 +81,23 @@
   border: 1px solid #D7C3BB;
   background-color: #D7C3BB;
   color: #7F6F68;
+}
+
+.custom-btn-contain-dark {
+  border: 1px solid #7F6F68;
+  background-color: #7F6F68;
+  color: #F8EBE6;
+}
+
+.custom-btn-contain-dark:hover {
+  border: 1px solid #94837C;
+  background-color: #94837C;
+  color: #F8EBE6;
+}
+
+.custom-btn-contain-dark:active {
+  cursor: wait;
+  border: 1px solid #B5A59E;
+  background-color: #B5A59E;
+  color: #F8EBE6;
 }

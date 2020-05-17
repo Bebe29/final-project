@@ -2,13 +2,13 @@ import React from "react";
 import "./Form.css";
 
 type FormType = {
-  // className?: string
+  className?: string;
   children: any;
 };
 
 const FormUI = (property: FormType) => {
-  let { children } = property;
-  return <div className="form">{children}</div>;
+  let { className, children } = property;
+  return <div className={`form ${className}`}>{children}</div>;
 };
 
 export default FormUI;
