@@ -1,0 +1,27 @@
+:root {
+    --accent-default: #7F6F68;
+    --accent-disable: #94837C;
+    --accent-dark: #D7C3BB;
+    --accent-medium: #E9D8D0;
+    --accent-light: #F8EBE6;
+  }
+
+.input {
+    background-color: #E9D8D0;
+    border: #E9D8D0;
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px 15px;
+    text-align: left;
+    font-size: 14.5px;
+    transition: all ease-in-out 200ms;
+    color: #7F6F68;
+}
+
+.input:hover {
+    background-color: #F8EBE6;
+}
+
+.input:active {
+    background-color: #F8EBE6;
+}

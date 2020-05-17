@@ -1,0 +1,16 @@
+:root {
+    --accent-default: #7F6F68;
+    --accent-disable: #94837C;
+    --accent-dark: #D7C3BB;
+    --accent-medium: #E9D8D0;
+    --accent-light: #F8EBE6;
+  }
+
+.form{
+    background-color: #D7C3BB;
+    border: 1px solid #D7C3BB;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 30px;
+    text-align: center;
+}

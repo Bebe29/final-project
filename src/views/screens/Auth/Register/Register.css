@@ -1,0 +1,12 @@
+/* :root {
+    --accent-default: #7F6F68;
+    --accent-light: #F8EBE6;
+    --accent-dark: #D7C3BB;
+    --accent-medium: #E9D8D0;
+    --accent-disable: #94837C;
+  } */
+
+.register{
+    border: 1px solid black;
+    padding: 5px;
+}

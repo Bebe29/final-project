@@ -1,9 +1,9 @@
 :root {
   --accent-default: #7F6F68;
-  --accent-light: #F8EBE6;
+  --accent-disable: #94837C;
   --accent-dark: #D7C3BB;
   --accent-medium: #E9D8D0;
-  --accent-disable: #94837C;
+  --accent-light: #F8EBE6;
 }
 
 .custom-btn {
@@ -18,6 +18,7 @@
   line-height: 1.6;
   letter-spacing: 0.3px;
   border-radius: 10px;
+  transition: all ease-in-out 200ms;
 }
 
 .custom-btn:hover {
@@ -25,58 +26,58 @@
 }
 
 .custom-btn-disable {
-  border: 1px solid var(--accent-disable);
-  background-color: var(--accent-disable);
-  color: var(--accent-dark);
+  border: 1px solid #94837C;
+  background-color: #94837C;
+  color: #D7C3BB
 }
 
 .custom-btn-text {
   border: transparent;
-  color: var(--accent-medium);
+  color: #E9D8D0;
 }
 
 .custom-btn-text:hover {
   border: transparent;
-  color: var(--accent-light);
+  color: #F8EBE6;
 }
 
 .custom-btn-text:active {
   cursor: wait;
   border: transparent;
-  color: var(--accent-dark);
+  color: #D7C3BB;
 }
 
 .custom-btn-outline {
-  border: 1px solid var(--accent-medium);
-  color: var(--accent-medium);
+  border: 1px solid #E9D8D0;
+  color: #E9D8D0;
 }
 
 .custom-btn-outline:hover {
-  border: 1px solid var(--accent-light);
-  color: var(--accent-light);
+  border: 1px solid #F8EBE6;
+  color: #F8EBE6;
 }
 
 .custom-btn-outline:active {
   cursor: wait;
-  border: 1px solid var(--accent-dark);
-  color: var(--accent-dark);
+  border: 1px solid #D7C3BB;
+  color: #D7C3BB;
 }
 
 .custom-btn-contain {
-  border: 1px solid var(--accent-medium);
-  background-color: var(--accent-medium);
-  color: var(--accent-default);
+  border: 1px solid #E9D8D0;
+  background-color: #E9D8D0;
+  color: #7F6F68;
 }
 
 .custom-btn-contain:hover {
-  border: 1px solid var(--accent-light);
-  background-color: var(--accent-light);
-  color: var(--accent-default);
+  border: 1px solid #F8EBE6;
+  background-color: #F8EBE6;
+  color: #7F6F68;
 }
 
 .custom-btn-contain:active {
   cursor: wait;
-  border: 1px solid var(--accent-dark);
-  background-color: var(--accent-dark);
-  color: var(--accent-default);
+  border: 1px solid #D7C3BB;
+  background-color: #D7C3BB;
+  color: #7F6F68;
 }
