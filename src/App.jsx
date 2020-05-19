@@ -8,6 +8,7 @@ import Home from "./views/screens/Home/Home";
 import NavbarUI from "./views/components/Navbar/Navbar";
 import Register from "./views/screens/Auth/Register/Register";
 import Login from "./views/screens/Auth/Login/Login";
+import PageNotFound from "./views/screens/PageNotFound/PageNotFound";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="*" component={PageNotFound} />
         </Switch>
       </>
     );
