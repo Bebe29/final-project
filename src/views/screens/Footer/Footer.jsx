@@ -8,7 +8,7 @@ class Footer extends Component {
         <div className="row">
           <h1>Footer</h1>
         </div>
-        <div className="row">©</div>
+        <div className="row">© 2020</div>
       </footer>
     );
   }

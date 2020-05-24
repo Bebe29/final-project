@@ -54,3 +54,66 @@ h6 {
   line-height: 18px;
   letter-spacing: 0.1px;
 }
+
+.subtitle-lg {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.subtitle-md {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.subtitle-sm {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.content-lg {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.content-md {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.content-sm {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+caption {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+}
