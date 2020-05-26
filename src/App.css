@@ -50,7 +50,7 @@ h6 {
   font-family: Spartan;
   font-style: normal;
   font-weight: bold !important;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 18px;
   letter-spacing: 0.1px;
 }
@@ -58,43 +58,52 @@ h6 {
 .subtitle-lg {
   font-family: Spartan;
   font-style: normal;
-  font-weight: bold !important;
-  font-size: 13px;
-  line-height: 18px;
+  font-weight: 600 !important;
+  font-size: 17px;
+  line-height: 23px;
   letter-spacing: 0.1px;
 }
 
 .subtitle-md {
   font-family: Spartan;
   font-style: normal;
-  font-weight: bold !important;
-  font-size: 13px;
-  line-height: 18px;
+  font-weight: 600 !important;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 0.1px;
 }
 
 .subtitle-sm {
   font-family: Spartan;
   font-style: normal;
-  font-weight: bold !important;
+  font-weight: 600 !important;
   font-size: 13px;
   line-height: 18px;
+  letter-spacing: 0.1px;
+}
+
+.subtitle-xs {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 9px;
+  line-height: 12px;
   letter-spacing: 0.1px;
 }
 
 .content-lg {
   font-family: Spartan;
   font-style: normal;
-  font-weight: bold !important;
-  font-size: 13px;
-  line-height: 18px;
+  font-weight: normal !important;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 0.1px;
 }
 
 .content-md {
   font-family: Spartan;
   font-style: normal;
-  font-weight: bold !important;
+  font-weight: normal !important;
   font-size: 13px;
   line-height: 18px;
   letter-spacing: 0.1px;
@@ -103,17 +112,26 @@ h6 {
 .content-sm {
   font-family: Spartan;
   font-style: normal;
-  font-weight: bold !important;
-  font-size: 13px;
-  line-height: 18px;
+  font-weight: normal !important;
+  font-size: 11.5px;
+  line-height: 16.5px;
+  letter-spacing: 0.1px;
+}
+
+.content-xs {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 9px;
+  line-height: 12px;
   letter-spacing: 0.1px;
 }
 
 caption {
   font-family: Spartan;
   font-style: normal;
-  font-weight: bold !important;
-  font-size: 13px;
-  line-height: 18px;
+  font-weight: 800 !important;
+  font-size: 17px;
+  line-height: 20px;
   letter-spacing: 0.1px;
 }

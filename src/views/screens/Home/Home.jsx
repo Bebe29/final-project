@@ -3,8 +3,9 @@ import "./Home.css";
 import A from "../../../assets/Carousel/1.jpg";
 import B from "../../../assets/Carousel/2.jpg";
 import C from "../../../assets/Carousel/3.jpg";
-import D from "../../../assets/Carousel/4.jpg";
-import E from "../../../assets/Carousel/5.jpg";
+import { Carousel } from "reactstrap";
+// import D from "../../../assets/Carousel/4.jpg";
+// import E from "../../../assets/Carousel/5.jpg";
 
 const dummyCarousel = [
   {
@@ -31,9 +32,30 @@ const dummyCarousel = [
 class Home extends Component {
   render() {
     return (
-      <div>
+      // <div>
+      //   <h1>Hello</h1>
+      // </div>
+      <>
+      <Carousel>
+        
+      </Carousel>
         <h1>Hello</h1>
-      </div>
+        <h2>Hello</h2>
+        <h3>Hello</h3>
+        <h4>Hello</h4>
+        <h5>Hello</h5>
+        <h6>Hello</h6>
+        <p>-------</p>
+        <div className="subtitle-lg">Hello</div>
+        <div className="subtitle-md">Hello</div>
+        <div className="subtitle-sm">Hello</div>
+        <div className="subtitle-xs">Hello</div>
+        <div className="content-lg">Hello</div>
+        <div className="content-md">Hello</div>
+        <div className="content-sm">Hello</div>
+        <div className="content-xs">Hello</div>
+        <caption>Hello</caption>
+      </>
     );
   }
 }

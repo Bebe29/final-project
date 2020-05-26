@@ -16,6 +16,28 @@ class NavbarUI extends Component {
               <img src={Logo} alt="" className="logo" />
             </Link>
           </Navbar.Brand>
+          <Nav className="mr-auto">
+            <ButtonUI type="text" className="mr-2">
+              <Link style={{ textDecoration: "none", color: "inherit" }}>
+                About Us
+              </Link>
+            </ButtonUI>
+            <ButtonUI type="text" className="mr-2">
+              <Link style={{ textDecoration: "none", color: "inherit" }}>
+                Shop
+              </Link>
+            </ButtonUI>
+            <ButtonUI type="text" className="mr-2">
+              <Link style={{ textDecoration: "none", color: "inherit" }}>
+                Groom
+              </Link>
+            </ButtonUI>
+            <ButtonUI type="text">
+              <Link style={{ textDecoration: "none", color: "inherit" }}>
+                Contact Us
+              </Link>
+            </ButtonUI>
+          </Nav>
           <Nav>
             <ButtonUI type="outline" className="mr-3">
               <Link
