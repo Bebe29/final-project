@@ -5,11 +5,13 @@
   --accent-medium: #d7c3bb;
   --accent-light: #e9d8d0;
   --accent-very-light: #f8ebe6;
+  --white: #ffffff;
+  --off-white: #fffcfb;
 }
 
 .carousel-container {
   width: 100%;
-  height: 550px;
+  height: 480px;
   padding: 0;
   margin: 0;
   object-fit: contain;
@@ -18,11 +20,15 @@
 .custom-carousel-caption {
   display: flex;
   flex-direction: column;
-  /* background-color: #b5a59e;
-  padding: 1%; */
+  padding: 5% 15%;
   align-items: center;
-  justify-content: center;
-  color: rgb(78, 75, 75);
+  justify-content: flex-end;
+  /* color: rgb(78, 75, 75); */
+  color: #fffcfb;
+  /* text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6); */
+  /* text-shadow: -2px 0px 13px #7f6f68; */
+  /* text-shadow: -2px 0px 13px rgba(0, 0, 0, 0.54); */
+  text-shadow: 2px 1px 22px #d7c3bb;
 }
 
 .carousel-indicators-round li {
@@ -33,5 +39,5 @@
 }
 
 .carousel-indicators .active {
-  background-color: black;
+  background-color: #f8ebe6;
 }

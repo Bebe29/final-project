@@ -5,4 +5,6 @@ export default {
   accentMedium: "#D7C3BB",
   accentLight: "#E9D8D0",
   accentVeryLight: "#F8EBE6",
+  white: "FFFFFF",
+  offWhite: "#FFFCFB",
 };

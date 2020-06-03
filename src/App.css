@@ -1,14 +1,15 @@
 head,
 body {
   font-family: Spartan !important;
-  background-color: #B5A59E !important;
-  color: #7F6F68 !important;
+  background-color: #b5a59e !important;
+  color: #7f6f68 !important;
 }
 
 h1 {
   font-family: Spartan;
   font-weight: bold !important;
   font-size: 45px;
+  /* font-size: 250% !important; */
   line-height: 60px;
   letter-spacing: 0.2px;
 }
@@ -25,6 +26,7 @@ h3 {
   font-family: Spartan;
   font-weight: bold !important;
   font-size: 27px;
+  /* font-size: 170% !important; */
   line-height: 38px;
   letter-spacing: 0.1px;
 }
@@ -69,6 +71,7 @@ h6 {
   font-style: normal;
   font-weight: 600 !important;
   font-size: 15px;
+  /* font-size: 80%; */
   line-height: 20px;
   letter-spacing: 0.1px;
 }

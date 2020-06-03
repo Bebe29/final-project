@@ -1,8 +1,19 @@
 import React, { Component } from "react";
 import "./Home.css";
-// import A from "../../../assets/Carousel/1.jpg";
 import B from "../../../assets/Carousel/2.jpg";
 import C from "../../../assets/Carousel/3.jpg";
+import D from "../../../assets/Carousel/4.jpg";
+import E from "../../../assets/Carousel/5.jpg";
+import F from "../../../assets/Carousel/6.jpg";
+import G from "../../../assets/Carousel/7.jpg";
+import H from "../../../assets/Carousel/8.jpg";
+import I from "../../../assets/Carousel/9.jpg";
+import J from "../../../assets/Carousel/10.jpg";
+import K from "../../../assets/Carousel/11.jpg";
+import L from "../../../assets/Carousel/12.jpg";
+import M from "../../../assets/Carousel/13.jpg";
+import N from "../../../assets/Carousel/14.jpg";
+import O from "../../../assets/Carousel/15.jpg";
 import {
   Carousel,
   CarouselItem,
@@ -10,7 +21,6 @@ import {
   CarouselIndicators,
   CarouselControl,
 } from "reactstrap";
-import D from "../../../assets/Carousel/4.jpg";
 
 const dummyCarousel = [
   {
@@ -57,13 +67,12 @@ class Home extends Component {
                 background: `url("${image}")`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                // opacity: "60%",
-                opacity: "75%",
+                opacity: "70%",
               }}
             >
               <div className="text-center">
-                <h3>{caption}</h3>
-                <h3 className="subtitle-lg">{content}</h3>
+                <h1>{caption}</h1>
+                <p className="subtitle-lg">{content}</p>
               </div>
               {/* <CarouselCaption
                 captionHeader={caption}
