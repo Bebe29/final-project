@@ -1,10 +1,10 @@
 :root {
-  --accent-default: #7F6F68;
-  --accent-disable: #94837C;
-  --accent-dark: #B5A59E;
-  --accent-medium: #D7C3BB;
-  --accent-light: #E9D8D0;
-  --accent-very-light: #F8EBE6;
+  --accent-default: #7f6f68;
+  --accent-disable: #94837c;
+  --accent-dark: #b5a59e;
+  --accent-medium: #d7c3bb;
+  --accent-light: #e9d8d0;
+  --accent-very-light: #f8ebe6;
 }
 
 .logo {
@@ -12,8 +12,8 @@
 }
 
 .navbar-container {
-  background-color: #7F6F68;
-  padding: 15px 25px;
-  border: 1px solid #7F6F68;
+  background-color: #7f6f68;
+  padding: 1% 2%;
+  border: 1px solid #7f6f68;
   background-size: cover;
 }

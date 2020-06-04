@@ -1,20 +1,22 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import "./Button.css";
 
 type ButtonType = {
   type?: "contain" | "outline" | "text" | "disable" | "contain-dark";
   children: any;
+  style?: CSSProperties;
   className?: string;
   onClick?: any;
 };
 
 const ButtonUI = (property: ButtonType) => {
-  let { type, children, className, onClick } = property;
+  let { type, children, style, className, onClick } = property;
 
   type = type || "contain";
 
   return (
     <div
+      style={style}
       onClick={onClick}
       className={`custom-btn custom-btn-${type} ${className}`}
     >
