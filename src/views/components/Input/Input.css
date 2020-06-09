@@ -1,28 +1,28 @@
 :root {
-    --accent-default: #7F6F68;
-    --accent-disable: #94837C;
-    --accent-dark: #B5A59E;
-    --accent-medium: #D7C3BB;
-    --accent-light: #E9D8D0;
-    --accent-very-light: #F8EBE6;
+  --accent-default: #7f6f68;
+  --accent-disable: #94837c;
+  --accent-dark: #b5a59e;
+  --accent-medium: #d7c3bb;
+  --accent-light: #e9d8d0;
+  --accent-very-light: #f8ebe6;
 }
 
-.input {
-    background-color: #E9D8D0;
-    border: #E9D8D0;
-    border-radius: 5px;
-    width: 90%;
-    padding: 8px 15px;
-    text-align: left;
-    font-size: 14.5px;
-    transition: all ease-in-out 200ms;
-    color: #7F6F68;
+.custom-input {
+  background-color: #e9d8d0;
+  border: #e9d8d0;
+  border-radius: 5px;
+  padding: 8px 15px;
+  width: 100%;
+  outline: none;
+  font-size: 85%;
+  color: #7f6f68;
+  transition: all ease-in-out 200ms;
 }
 
-.input:hover {
-    background-color: #F8EBE6;
+.custom-input:hover {
+  background-color: #f8ebe6;
 }
 
-.input:active {
-    background-color: #F8EBE6;
+.custom-input:active {
+  background-color: #f8ebe6;
 }

@@ -1,21 +1,24 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import "./Input.css";
 
 type InputStyle = {
+  type?: any;
   value?: any;
+  style?: CSSProperties;
+  className?: string;
   placeholder?: string;
 };
 
 const InputUI = (property: InputStyle) => {
-  let { value, placeholder } = property;
+  let { value, style, className, placeholder } = property;
   return (
     <input
       type="text"
       value={value}
-      className="input mt-3"
+      style={style}
+      className={`custom-input mt-3 ${className}`}
       placeholder={placeholder}
     />
-    // <div className="d-flex justify-content-center input mt-3">{children}</div>
   );
 };
 

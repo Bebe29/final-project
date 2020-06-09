@@ -1,0 +1,10 @@
+.register {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

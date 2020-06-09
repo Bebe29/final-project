@@ -7,6 +7,7 @@
   --accent-very-light: #f8ebe6;
   --white: #ffffff;
   --off-white: #fffcfb;
+  --cream: #fff6f2;
 }
 
 .carousel-container {
@@ -22,13 +23,13 @@
   flex-direction: column;
   padding: 5% 15%;
   align-items: center;
-  justify-content: flex-end;
-  /* color: rgb(78, 75, 75); */
+  /* justify-content: flex-end; */
+  justify-content: center;
   color: #fffcfb;
-  /* text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6); */
-  /* text-shadow: -2px 0px 13px #7f6f68; */
-  /* text-shadow: -2px 0px 13px rgba(0, 0, 0, 0.54); */
-  text-shadow: 2px 1px 22px #d7c3bb;
+  /* text-shadow: 2px 1px 22px #d7c3bb; */
+  /* text-shadow: 2px 1px 22px #7f6f68; */
+  /* text-shadow: -2px 3px 6px rgba(100, 89, 84, 1); */
+  text-shadow: -2px 3px 10px rgba(49, 42, 39, 1);
 }
 
 .carousel-indicators-round li {
@@ -39,5 +40,5 @@
 }
 
 .carousel-indicators .active {
-  background-color: #f8ebe6;
+  background-color: #fffcfb;
 }

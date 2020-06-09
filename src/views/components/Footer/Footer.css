@@ -7,11 +7,11 @@
   --accent-very-light: #f8ebe6;
 }
 
-.form {
-  background-color: #d7c3bb;
-  border: 1px solid #d7c3bb;
-  border-radius: 10px;
-  width: fit-content;
-  padding: 30px;
-  text-align: center;
+.footer-container {
+  background-color: #7f6f68;
+  padding: 15px 25px;
+  border: 1px solid #7f6f68;
+  color: #d7c3bb;
+  /* display: flex;
+  flex-direction: column; */
 }

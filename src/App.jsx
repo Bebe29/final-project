@@ -9,7 +9,6 @@ import NavbarUI from "./views/components/Navbar/Navbar";
 import Register from "./views/screens/Auth/Register/Register";
 import Login from "./views/screens/Auth/Login/Login";
 import PageNotFound from "./views/screens/PageNotFound/PageNotFound";
-import Footer from "./views/screens/Footer/Footer";
 
 class App extends Component {
   render() {
@@ -22,7 +21,6 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="*" component={PageNotFound} />
         </Switch>
-        <Footer />
       </>
     );
   }
