@@ -17,11 +17,11 @@ import D from "../../../assets/Carousel/4.jpg";
 import {
   Carousel,
   CarouselItem,
-  // CarouselCaption,
   CarouselIndicators,
   CarouselControl,
 } from "reactstrap";
-import Footer from "../../components/Footer/Footer";
+import About from "../../screens/About/About";
+import Footer from "../Footer/Footer";
 
 const dummyCarousel = [
   {
@@ -133,6 +133,7 @@ class Home extends Component {
                 onClickHandler={this.next}
               />
             </Carousel>
+            <About />
             <h1>Hello</h1>
             <h2>Hello</h2>
             <h3>Hello</h3>

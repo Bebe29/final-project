@@ -26,3 +26,11 @@
 .custom-input:active {
   background-color: #f8ebe6;
 }
+
+.custom-input:valid {
+  color: #7f6f68;
+}
+
+.custom-input:focus {
+  background-color: #f8ebe6;
+}

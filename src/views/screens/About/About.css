@@ -7,11 +7,9 @@
   --accent-very-light: #f8ebe6;
 }
 
-.form {
+.about-container {
   background-color: #d7c3bb;
-  border: 1px solid #d7c3bb;
-  border-radius: 10px;
-  width: fit-content;
-  padding: 30px;
+  padding: 5%;
+  color: #7f6f68;
   text-align: center;
 }

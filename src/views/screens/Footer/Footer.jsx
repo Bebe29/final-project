@@ -9,14 +9,7 @@ class Footer extends Component {
           <div className="col-2">Logo</div>
           <div className="col subtitle-lg">Contact Us</div>
           <div className="col subtitle-lg">Support</div>
-          <div className="col">
-            <div className="d-flex justify-content-center subtitle-lg">
-              Payment Option
-            </div>
-            <div className="d-flex justify-content-center subtitle-lg">
-              Follow Us
-            </div>
-          </div>
+          <div className="col subtitle-lg">Follow Us</div>
         </div>
         <div className="row">
           <div className="col text-center content-xs">
