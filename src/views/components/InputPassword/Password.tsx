@@ -1,5 +1,7 @@
 import React, { CSSProperties } from "react";
 import "./Password.css";
+import Eye from "../../../assets/Icon/eye.png"
+// import Hide from "../../../assets/Icon/hide.png"
 
 type PasswordStyle = {
   type?: any;
@@ -22,9 +24,14 @@ const PasswordUI = (property: PasswordStyle) => {
       <div className="password-eye">
         <img
           className="eye"
-          src="https://img.icons8.com/material-outlined/24/000000/visible.png"
+          src={Eye}
           alt=""
         />
+        {/* <img
+          className="eye"
+          src={Hide}
+          alt=""
+        /> */}
       </div>
     </div>
   );
