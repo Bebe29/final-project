@@ -8,7 +8,7 @@ import Navbar from "react-bootstrap/Navbar";
 class NavbarUI extends Component {
   render() {
     return (
-      <Navbar sticky="top" className="row navbar-container">
+      <Navbar sticky="top" expand="lg" className="row navbar-container">
         <div className="col-2 d-flex justify-content-start pl-2">
           <Link to="/">
             <img src={Logo} alt="" className="logo" />
@@ -58,6 +58,8 @@ class NavbarUI extends Component {
             </ButtonUI>
           </div>
         </div>
+        {/* <Navbar.Toggle /> */}
+        <i className="fas fa-bars"></i>
       </Navbar>
     );
   }
