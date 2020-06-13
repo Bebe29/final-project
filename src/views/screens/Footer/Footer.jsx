@@ -14,7 +14,7 @@ class Footer extends Component {
       <footer className="footer-container">
         <div className="row">
           <div className="col">
-            <img src={Logo} alt="" style={{ width: "40%" }} />
+            <img src={Logo} alt="" style={{ width: "50px" }} />
           </div>
           <div className="col">
             <div className="row subtitle-lg">Contact Us</div>
