@@ -12,4 +12,14 @@
   padding: 5%;
   color: #7f6f68;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  font-weight: 400 !important;
+  width: 65%;
+  text-align: center;
 }

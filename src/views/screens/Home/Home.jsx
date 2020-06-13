@@ -26,14 +26,15 @@ import Footer from "../Footer/Footer";
 const dummyCarousel = [
   {
     caption: `Welcome to PETOLOGY`,
-    content: `We provide pet supply and grooming for your lovely cats and dogs`,
+    // content: `We provide pet supply and grooming for your beloved dogs`,
+    content: ``,
     buttonText: ``,
     image: C,
     id: 1,
   },
   {
     caption: `Buy all your pet needs in here`,
-    content: `We have all the best products for your pet`,
+    content: `We have all the best products for your dogs`,
     buttonText: `Shop Now`,
     image: B,
     id: 2,

@@ -17,9 +17,12 @@ class NavbarUI extends Component {
         <div className="col-8 d-flex justify-content-center">
           <div className="row">
             <ButtonUI type="text">
-              <Link style={{ textDecoration: "none", color: "inherit" }}>
+              <a
+                href="#about"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 About Us
-              </Link>
+              </a>
             </ButtonUI>
             <ButtonUI type="text">
               <Link style={{ textDecoration: "none", color: "inherit" }}>
@@ -58,8 +61,6 @@ class NavbarUI extends Component {
             </ButtonUI>
           </div>
         </div>
-        {/* <Navbar.Toggle /> */}
-        <i className="fas fa-bars"></i>
       </Navbar>
     );
   }
