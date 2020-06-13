@@ -6,7 +6,7 @@ class About extends Component {
     return (
       <div className="about-container" id="about">
         <h1 className="p-4">About Us</h1>
-        <h4 className="p-4 about-content">
+        <h4 className="about-content">
           {`
           At Petology, we provide pet supply and grooming service for your
           beloved dogs. We sell a wide selection and high-quality product just
