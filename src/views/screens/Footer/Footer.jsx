@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Footer.css";
 
-import Logo from "../../../assets/Logo/logo.png";
 import Phone from "../../../assets/Icon/phone.png";
 import Location from "../../../assets/Icon/location.png";
 import Email from "../../../assets/Icon/email.png";
@@ -13,44 +12,38 @@ class Footer extends Component {
     return (
       <footer className="footer-container">
         <div className="row">
-          <div className="col">
-            <img src={Logo} alt="" style={{ width: "50px" }} />
-          </div>
-          <div className="col">
-            <div className="row subtitle-lg">Contact Us</div>
-            <div className="row">
-              <div className="col">
-                <img src={Location} alt="" style={{ width: "15px" }} />
+          <div className="col footer-contact-container">
+            <div className="subtitle-lg">Contact Us</div>
+            <div className="footer-contact-container-content">
+              <div className="footer-contact-content content-md">
+                <img src={Location} alt="" width="10px" />
+                <div className="ml-2">{`Jakarta`}</div>
               </div>
-              <div className="col">Jakarta</div>
-            </div>
-            <div className="row">
-              <div className="col">
-                <img src={Phone} alt="" style={{ width: "15px" }} />
+              <div className="footer-contact-content content-md p-2">
+                <img src={Phone} alt="" width="13px" />
+                <div className="ml-2">{`08924809812049`}</div>
               </div>
-              <div className="col">08924809812049</div>
-            </div>
-            <div className="row">
-              <div className="col">
-                <img src={Email} alt="" style={{ width: "15px" }} />
+              <div className="footer-contact-content content-md">
+                <img src={Email} alt="" width="13px" />
+                <div className="ml-2">{`Petology@gmail.com`}</div>
               </div>
-              <div className="col">Petology@gmail.com</div>
             </div>
           </div>
-          {/* <div className="col subtitle-lg">Support</div> */}
-          <div className="col">
-            <div className="row subtitle-lg">Follow Us</div>
-            <div className="row">
-              <div className="col">
-                <a href="https://www.instagram.com/?hl=id">
-                  <img src={Insta} alt="" style={{ width: "15px" }} />
-                </a>
-              </div>
-              <div className="col">
-                <a href="https://id-id.facebook.com/">
-                  <img src={Facebook} alt="" style={{ width: "15px" }} />
-                </a>
-              </div>
+          <div className="col footer-follow-container">
+            <div className="subtitle-lg">Follow Us</div>
+            <div className="footer-follow-container-icon">
+              <a
+                href="https://www.instagram.com/?hl=id"
+                style={{ margin: "0px 10px" }}
+              >
+                <img src={Insta} alt="" style={{ width: "25px" }} />
+              </a>
+              <a
+                href="https://id-id.facebook.com/"
+                style={{ margin: "0px 10px" }}
+              >
+                <img src={Facebook} alt="" style={{ width: "25px" }} />
+              </a>
             </div>
           </div>
         </div>
