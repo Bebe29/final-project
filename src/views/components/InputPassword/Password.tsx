@@ -1,7 +1,7 @@
 import React, { CSSProperties } from "react";
 import "./Password.css";
-import Eye from "../../../assets/Icon/eye.png"
-// import Hide from "../../../assets/Icon/hide.png"
+import Eye from "../../../assets/Icon/eye.png";
+import Hide from "../../../assets/Icon/hide.png";
 
 type PasswordStyle = {
   type?: any;
@@ -9,29 +9,25 @@ type PasswordStyle = {
   style?: CSSProperties;
   className?: string;
   placeholder?: string;
+  onClick?: any;
 };
 
 const PasswordUI = (property: PasswordStyle) => {
-  let { value, className, placeholder } = property;
+  let { type, value, className, placeholder, onClick } = property;
   return (
     <div className={`d-flex password mt-3 ${className}`}>
       <input
-        type="text"
+        type={type}
         value={value}
         className="password-input"
         placeholder={placeholder}
       />
-      <div className="password-eye">
-        <img
-          className="eye"
-          src={Eye}
-          alt=""
-        />
-        {/* <img
-          className="eye"
-          src={Hide}
-          alt=""
-        /> */}
+      <div className="password-eye" onClick={onClick}>
+        {type === "password" ? (
+          <img className="eye" src={Eye} alt="" />
+        ) : (
+          <img className="eye" src={Hide} alt="" />
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,26 @@
 {
-  "user": [],
-  "admin": []
+  "carousels": [
+    {
+      "caption": "Welcome to PETOLOGY",
+      "content": "",
+      "buttonText": "",
+      "image": "https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "id": 1
+    },
+    {
+      "caption": "Buy all your pet needs in here",
+      "content": "We have all the best products for your dogs",
+      "buttonText": "Shop Now",
+      "image": "https://images.pexels.com/photos/4046647/pexels-photo-4046647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "id": 2
+    },
+    {
+      "caption": "Grooming your lovely pets",
+      "content": "Our professional groomer will make your furriest friend looking and smelling great",
+      "buttonText": "Book Now",
+      "image": "https://images.pexels.com/photos/3908768/pexels-photo-3908768.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "id": 3
+    }
+  ],
+  "user": []
 }

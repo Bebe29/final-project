@@ -1,61 +1,40 @@
 import React, { Component } from "react";
 import "./Home.css";
-import B from "../../../assets/Carousel/2.jpg";
-import C from "../../../assets/Carousel/3.jpg";
-import D from "../../../assets/Carousel/4.jpg";
-// import E from "../../../assets/Carousel/5.jpg";
-// import F from "../../../assets/Carousel/6.jpg";
-// import G from "../../../assets/Carousel/7.jpg";
-// import H from "../../../assets/Carousel/8.jpg";
-// import I from "../../../assets/Carousel/9.jpg";
-// import J from "../../../assets/Carousel/10.jpg";
-// import K from "../../../assets/Carousel/11.jpg";
-// import L from "../../../assets/Carousel/12.jpg";
-// import M from "../../../assets/Carousel/13.jpg";
-// import N from "../../../assets/Carousel/14.jpg";
-// import O from "../../../assets/Carousel/15.jpg";
 import {
   Carousel,
   CarouselItem,
   CarouselIndicators,
   CarouselControl,
 } from "reactstrap";
+import Axios from "axios";
+import { API_URL } from "../../../constants/API";
 import About from "../../screens/About/About";
 import Footer from "../Footer/Footer";
-
-const dummyCarousel = [
-  {
-    caption: `Welcome to PETOLOGY`,
-    // content: `We provide pet supply and grooming for your beloved dogs`,
-    content: ``,
-    buttonText: ``,
-    image: C,
-    id: 1,
-  },
-  {
-    caption: `Buy all your pet needs in here`,
-    content: `We have all the best products for your dogs`,
-    buttonText: `Shop Now`,
-    image: B,
-    id: 2,
-  },
-  {
-    caption: `Grooming your lovely pets`,
-    content: `Our professional groomer will make your furriest friend looking and smelling great`,
-    buttonText: `Book Now`,
-    image: D,
-    id: 3,
-  },
-];
 
 class Home extends Component {
   state = {
     activeIndex: 0,
     animating: false,
+    carouselData: [],
+  };
+
+  componentDidMount() {
+    this.getCarouselData();
+  }
+
+  getCarouselData = () => {
+    Axios.get(`${API_URL}/carousels`)
+      .then((res) => {
+        this.setState({ carouselData: res.data });
+        console.log(this.state.carouselData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   renderCarousel = () => {
-    return dummyCarousel.map(({ caption, content, buttonText, image, id }) => {
+    return this.state.carouselData.map(({ caption, content, image, id }) => {
       return (
         <CarouselItem
           onExiting={() => this.setState({ animating: true })}
@@ -86,7 +65,7 @@ class Home extends Component {
   next = () => {
     if (this.state.animating) return;
     let nextIndex =
-      this.state.activeIndex === dummyCarousel.length - 1
+      this.state.activeIndex === this.state.carouselData.length - 1
         ? 0
         : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
@@ -96,7 +75,7 @@ class Home extends Component {
     if (this.state.animating) return;
     let nextIndex =
       this.state.activeIndex === 0
-        ? dummyCarousel.length - 1
+        ? this.state.carouselData.length - 1
         : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   };
@@ -117,7 +96,7 @@ class Home extends Component {
               previous={this.previous}
             >
               <CarouselIndicators
-                items={dummyCarousel}
+                items={this.state.carouselData}
                 activeIndex={this.state.activeIndex}
                 onClickHandler={this.goToIndex}
                 className="carousel-indicators-round"
