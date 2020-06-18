@@ -10,10 +10,11 @@ type PasswordStyle = {
   className?: string;
   placeholder?: string;
   onClick?: any;
+  onChange?: any;
 };
 
 const PasswordUI = (property: PasswordStyle) => {
-  let { type, value, className, placeholder, onClick } = property;
+  let { type, value, className, placeholder, onClick, onChange } = property;
   return (
     <div className={`d-flex password mt-3 ${className}`}>
       <input
@@ -21,6 +22,7 @@ const PasswordUI = (property: PasswordStyle) => {
         value={value}
         className="password-input"
         placeholder={placeholder}
+        onChange={onChange}
       />
       <div className="password-eye" onClick={onClick}>
         {type === "password" ? (

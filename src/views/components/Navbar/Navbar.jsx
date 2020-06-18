@@ -25,17 +25,17 @@ class NavbarUI extends Component {
               </a>
             </ButtonUI>
             <ButtonUI type="text">
-              <Link style={{ textDecoration: "none", color: "inherit" }}>
+              <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
                 Shop
               </Link>
             </ButtonUI>
             <ButtonUI type="text">
-              <Link style={{ textDecoration: "none", color: "inherit" }}>
+              <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
                 Groom
               </Link>
             </ButtonUI>
             <ButtonUI type="text">
-              <Link style={{ textDecoration: "none", color: "inherit" }}>
+              <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
                 Contact Us
               </Link>
             </ButtonUI>

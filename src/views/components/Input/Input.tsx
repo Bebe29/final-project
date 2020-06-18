@@ -7,17 +7,19 @@ type InputStyle = {
   style?: CSSProperties;
   className?: string;
   placeholder?: string;
+  onChange?: any;
 };
 
 const InputUI = (property: InputStyle) => {
-  let { value, style, className, placeholder } = property;
+  let { type, value, style, className, placeholder, onChange } = property;
   return (
     <input
-      type="text"
+      type={type || "text"}
       value={value}
       style={style}
       className={`custom-input mt-3 ${className}`}
       placeholder={placeholder}
+      onChange={onChange}
     />
   );
 };
