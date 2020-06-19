@@ -26,7 +26,6 @@ class Home extends Component {
     Axios.get(`${API_URL}/carousels`)
       .then((res) => {
         this.setState({ carouselData: res.data });
-        console.log(this.state.carouselData);
       })
       .catch((err) => {
         console.log(err);

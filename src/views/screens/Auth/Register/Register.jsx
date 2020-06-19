@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Register.css";
 import "../../Auth/Form.css";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { Redirect, Link } from "react-router-dom";
 import InputUI from "../../../components/Input/Input";
 import ButtonUI from "../../../components/Button/Button";
 import PasswordUI from "../../../components/InputPassword/Password";
+import { connect } from "react-redux";
 import { registerHandler } from "../../../../redux/actions";
+import Cookie from "universal-cookie";
 
 const Register = ({ user, onRegister }) => {
   const [input, setInput] = useState({
@@ -20,6 +21,11 @@ const Register = ({ user, onRegister }) => {
     showPassword: false,
     showRepeatPassword: false,
   });
+
+  if (user.id) {
+    const cookie = new Cookie();
+    cookie.set("authData", JSON.stringify(user), { path: "/" });
+  }
 
   const inputHandler = (e, field) => {
     const { value } = e.target;
@@ -35,11 +41,27 @@ const Register = ({ user, onRegister }) => {
     onRegister(newUser);
   };
 
+  if (user.id > 0) {
+    return <Redirect to="/" />;
+  }
   return (
     <div className="row register">
       <div className="col-1 col-sm-2 col-md-3 col-lg-4"></div>
       <div className="col register-container form">
-        <h2 className="mb-3">Register</h2>
+        <h2 className="mb-2">Register</h2>
+        <div className="content-md mb-3" style={{ color: "#645954" }}>
+          {`Already have an account? `}
+          <Link
+            to="/login"
+            style={{
+              textDecoration: "none",
+              color: "#312A27",
+              fontWeight: "600",
+            }}
+          >
+            Login here
+          </Link>
+        </div>
         {user.errMsg ? (
           <div className="content-sm error-msg">{user.errMsg}</div>
         ) : null}
@@ -72,19 +94,6 @@ const Register = ({ user, onRegister }) => {
           onChange={(e) => inputHandler(e, "repeatPass")}
           onClick={() => showHandler("showRepeatPassword")}
         />
-        <div className="content-md mt-4" style={{ color: "#645954" }}>
-          {`Already have an account? `}
-          <Link
-            to="/login"
-            style={{
-              textDecoration: "none",
-              color: "#312A27",
-              fontWeight: "600",
-            }}
-          >
-            Login here
-          </Link>
-        </div>
         <div className="d-flex justify-content-center mt-4">
           <ButtonUI type="contain-dark" onClick={registerBtnHandler}>
             Register

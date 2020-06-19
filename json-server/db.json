@@ -38,6 +38,14 @@
       "password": "r2d2",
       "role": "user",
       "id": 2
+    },
+    {
+      "username": "admin",
+      "fullName": "Admin 1r",
+      "email": "admin@mail.com",
+      "password": "admin",
+      "role": "admin",
+      "id": 3
     }
   ]
 }

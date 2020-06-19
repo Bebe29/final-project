@@ -12,6 +12,8 @@ const init_state = {
 export default (state = init_state, action) => {
   switch (action.type) {
     case ON_LOGIN_SUCCESS:
+      const { id, role } = action.payload;
+      return { ...state, id, role, errMsg: "" };
     case ON_LOGIN_FAIL:
       return { ...state, errMsg: action.payload };
     case ON_LOGOUT_SUCCESS:
