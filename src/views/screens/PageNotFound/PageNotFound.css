@@ -1,3 +1,35 @@
+.notfound-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15% 5%;
+}
+
+.notfound-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 2%;
+}
+
 .notfound-img {
-    height: 150px;
+  height: 150px;
+}
+
+@media (max-width: 400px) {
+  .notfound-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15% 5%;
+  }
+
+  .notfound-img {
+    height: 125px;
+    padding-bottom: 8%;
+  }
 }
