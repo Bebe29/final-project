@@ -8,7 +8,7 @@ import {
 } from "reactstrap";
 import Axios from "axios";
 import { API_URL } from "../../../constants/API";
-import About from "../../screens/About/About";
+import About from "../About/About";
 import Footer from "../Footer/Footer";
 
 class Home extends Component {
@@ -112,7 +112,7 @@ class Home extends Component {
                 onClickHandler={this.next}
               />
             </Carousel>
-            <About />
+            <About page={"home"} />
             <h1>Hello</h1>
             <h2>Hello</h2>
             <h3>Hello</h3>

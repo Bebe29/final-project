@@ -134,3 +134,35 @@ export const loginHandler = (userData) => {
       });
   };
 };
+
+export const keepLogin = (userData) => {
+  return (dispatch) => {
+    Axios.get(`${API_URL}/users`, {
+      params: {
+        id: userData.id,
+      },
+    })
+      .then((res) => {
+        if (res.data.length > 0) {
+          dispatch({
+            type: ON_LOGIN_SUCCESS,
+            payload: res.data[0],
+          });
+        } else {
+          dispatch({
+            type: ON_LOGIN_FAIL,
+            payload: "Username not found",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const cookieChecker = () => {
+  return {
+    type: "COOKIE_CHECK",
+  };
+};

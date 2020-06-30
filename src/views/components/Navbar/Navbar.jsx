@@ -1,47 +1,58 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import Logo from "../../../assets/Logo/petshop.png";
 import ButtonUI from "../Button/Button";
 import Navbar from "react-bootstrap/Navbar";
 
-class NavbarUI extends Component {
-  render() {
-    return (
-      <Navbar sticky="top" expand="lg" className="row navbar-container">
-        <div className="col-2 d-flex justify-content-start pl-2">
-          <Link to="/">
-            <img src={Logo} alt="" className="logo" />
-          </Link>
+const NavbarUI = ({ user }) => {
+  return (
+    <Navbar sticky="top" expand="lg" className="row navbar-container">
+      <div className="col-2 d-flex justify-content-start pl-2">
+        <Link to="/">
+          <img src={Logo} alt="" className="logo" />
+        </Link>
+      </div>
+      <div className="col-8 d-flex justify-content-center">
+        <div className="d-flex flex-row">
+          <ButtonUI type="text">
+            <Link
+              to="/about"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              About Us
+            </Link>
+          </ButtonUI>
+          <ButtonUI type="text">
+            <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
+              Shop
+            </Link>
+          </ButtonUI>
+          <ButtonUI type="text">
+            <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
+              Contact Us
+            </Link>
+          </ButtonUI>
         </div>
-        <div className="col-8 d-flex justify-content-center">
-          <div className="row">
-            <ButtonUI type="text">
-              <a
-                href="#about"
+      </div>
+      <div className="col-2 d-flex justify-content-end pr-4">
+        {user.id ? (
+          <div className="d-flex justify-content-center align-items-center">
+            {/* <ButtonUI type="outline" className="mr-3">
+              <Link
+                to="/login"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                About Us
-              </a>
-            </ButtonUI>
-            <ButtonUI type="text">
-              <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
-                Shop
+                Sign In
               </Link>
-            </ButtonUI>
-            <ButtonUI type="text">
-              <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
-                Groom
-              </Link>
-            </ButtonUI>
-            <ButtonUI type="text">
-              <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
-                Contact Us
-              </Link>
-            </ButtonUI>
+            </ButtonUI> */}
+            {/* <ButtonUI type="text">{user.username}</ButtonUI> */}
+            <div className="" style={{ color: "white" }}>
+              {`Hi, ${user.username}`}
+            </div>
           </div>
-        </div>
-        <div className="col-2 d-flex justify-content-end pr-4">
+        ) : (
           <div className="row">
             <ButtonUI type="outline" className="mr-3">
               <Link
@@ -60,10 +71,16 @@ class NavbarUI extends Component {
               </Link>
             </ButtonUI>
           </div>
-        </div>
-      </Navbar>
-    );
-  }
-}
+        )}
+      </div>
+    </Navbar>
+  );
+};
 
-export default NavbarUI;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(NavbarUI);

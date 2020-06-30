@@ -49,13 +49,13 @@ const Register = ({ user, onRegister }) => {
       <div className="col-1 col-sm-2 col-md-3 col-lg-4"></div>
       <div className="col register-container form">
         <h2 className="mb-2">Register</h2>
-        <div className="content-md mb-3" style={{ color: "#645954" }}>
+        <div className="content-md mb-3">
           {`Already have an account? `}
           <Link
             to="/login"
             style={{
               textDecoration: "none",
-              color: "#312A27",
+              color: "#645954",
               fontWeight: "600",
             }}
           >

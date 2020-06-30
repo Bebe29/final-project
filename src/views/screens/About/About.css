@@ -7,10 +7,27 @@
   --accent-very-light: #f8ebe6;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 6% 5%;
+}
+
 .about-container {
-  background-color: #d7c3bb;
+  background-color: #e9d8d0;
+  padding: 11% 10%;
+  color: #645954;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container-home {
+  background-color: #e9d8d0;
   padding: 5%;
-  color: #7f6f68;
+  color: #645954;
   text-align: center;
   display: flex;
   flex-direction: column;
