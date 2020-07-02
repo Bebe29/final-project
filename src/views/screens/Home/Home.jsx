@@ -112,26 +112,27 @@ class Home extends Component {
                 onClickHandler={this.next}
               />
             </Carousel>
-            <About page={"home"} />
-            <h1>Hello</h1>
-            <h2>Hello</h2>
-            <h3>Hello</h3>
-            <h4>Hello</h4>
-            <h5>Hello</h5>
-            <h6>Hello</h6>
-            <p>-------</p>
-            <div className="subtitle-lg">Hello</div>
-            <div className="subtitle-md">Hello</div>
-            <div className="subtitle-sm">Hello</div>
-            <div className="subtitle-xs">Hello</div>
-            <div className="content-lg">Hello</div>
-            <div className="content-md">Hello</div>
-            <div className="content-sm">Hello</div>
-            <div className="content-xs">Hello</div>
-            <caption>Hello</caption>
           </div>
         </div>
-        <div>
+        <About page={"home"} />
+        <h1>Hello</h1>
+        <h2>Hello</h2>
+        <h3>Hello</h3>
+        <h4>Hello</h4>
+        <h5>Hello</h5>
+        <h6>Hello</h6>
+        <p>-------</p>
+        <div className="content-lg">Profile</div>
+        <div className="subtitle-lg">Hello</div>
+        <div className="subtitle-md">Hello</div>
+        <div className="subtitle-sm">Hello</div>
+        <div className="subtitle-xs">Hello</div>
+        <div className="content-lg">Hello</div>
+        <div className="content-md">Hello</div>
+        <div className="content-sm">Hello</div>
+        <div className="content-xs">Hello</div>
+        <caption>Hello</caption>
+        <div className="">
           <Footer />
         </div>
       </>

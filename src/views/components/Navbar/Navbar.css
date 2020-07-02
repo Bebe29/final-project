@@ -17,3 +17,36 @@
   border: 1px solid #7f6f68;
   background-size: cover;
 }
+
+.dropdown-menu {
+  background-color: #fffcfb;
+}
+
+.dropdown-item {
+  color: #7f6f68 !important;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 85%;
+}
+
+.dropdown-item:hover {
+  background-color: #fff6f2;
+}
+
+.dropdown-item:active {
+  background-color: #f8ebe6;
+}
+
+.circle-bg {
+  width: 15px;
+  height: 15px;
+  padding: 3px;
+  background-color: #f8ebe6;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 6px;
+  font-weight: bold;
+  line-height: 12px;
+  letter-spacing: 0;
+}

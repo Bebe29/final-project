@@ -10,8 +10,8 @@
 .form {
   display: flex;
   flex-direction: column;
-  background-color: #d7c3bb;
-  border: 1px solid #d7c3bb;
+  background-color: #bca79e;
+  border: 1px solid #bca79e;
   border-radius: 10px;
   width: fit-content;
   padding: 45px;

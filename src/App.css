@@ -1,7 +1,8 @@
 head,
 body {
   font-family: Spartan !important;
-  background-color: #b5a59e !important;
+  /* background-color: #b5a59e !important; */
+  background-color: #d7c3bb !important;
   color: #7f6f68 !important;
   overflow-x: hidden;
   height: 100% !important;

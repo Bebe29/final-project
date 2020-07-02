@@ -11,6 +11,7 @@ import About from "./views/screens/About/About";
 import NavbarUI from "./views/components/Navbar/Navbar";
 import Register from "./views/screens/Auth/Register/Register";
 import Login from "./views/screens/Auth/Login/Login";
+import Shop from "./views/screens/Shop/Shop";
 import PageNotFound from "./views/screens/PageNotFound/PageNotFound";
 import { keepLogin, cookieChecker } from "./redux/actions";
 
@@ -35,6 +36,7 @@ class App extends Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/shop" component={Shop} />
           <Route exact path="*" component={PageNotFound} />
         </Switch>
       </>
