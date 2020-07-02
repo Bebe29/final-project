@@ -1,0 +1,21 @@
+:root {
+  --accent-default: #7f6f68;
+  --accent-disable: #94837c;
+  --accent-dark: #b5a59e;
+  --accent-medium: #d7c3bb;
+  --accent-light: #e9d8d0;
+  --accent-very-light: #f8ebe6;
+}
+
+.card-container {
+  display: inline-block;
+  background-color: #f8ebe6;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.card-image {
+  width: 200px;
+  height: 250px;
+  object-fit: contain;
+}
