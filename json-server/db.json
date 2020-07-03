@@ -13,23 +13,24 @@
       "buttonText": "Shop Now",
       "image": "https://images.pexels.com/photos/4046647/pexels-photo-4046647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "id": 2
-    },
-    {
-      "caption": "Grooming your lovely pets",
-      "content": "Our professional groomer will make your furriest friend looking and smelling great",
-      "buttonText": "Book Now",
-      "image": "https://images.pexels.com/photos/3908768/pexels-photo-3908768.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "id": 3
     }
   ],
   "users": [
+    {
+      "username": "admin",
+      "fullName": "Admin 1",
+      "email": "admin@mail.com",
+      "password": "admin",
+      "role": "admin",
+      "id": 1
+    },
     {
       "username": "vader",
       "fullName": "Dark Vader",
       "email": "vader@mail.com",
       "password": "deathstar",
       "role": "user",
-      "id": 1
+      "id": 2
     },
     {
       "username": "luke",
@@ -37,14 +38,6 @@
       "email": "luke@mail.com",
       "password": "r2d2",
       "role": "user",
-      "id": 2
-    },
-    {
-      "username": "admin",
-      "fullName": "Admin 1r",
-      "email": "admin@mail.com",
-      "password": "admin",
-      "role": "admin",
       "id": 3
     }
   ]

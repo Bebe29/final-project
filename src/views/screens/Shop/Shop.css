@@ -12,4 +12,50 @@
   padding: 1% 2%;
   border: 1px solid #94837c;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+}
+
+.category {
+  color: #f8ebe6;
+  cursor: pointer;
+  font-weight: bold !important;
+  font-size: 80%;
+  padding-right: 1.5%;
+}
+
+.shop-input {
+  background-color: #e9d8d0;
+  border: #e9d8d0;
+  border-radius: 5px;
+  padding: 8px 15px;
+  width: 100%;
+  outline: none;
+  font-size: 70%;
+  color: #7f6f68;
+  transition: all ease-in-out 200ms;
+  flex: 1;
+}
+
+.shop-input:hover {
+  background-color: #f8ebe6;
+}
+
+.shop-input:active {
+  background-color: #f8ebe6;
+}
+
+.shop-input:valid {
+  color: #7f6f68;
+}
+
+.shop-input:focus {
+  background-color: #f8ebe6;
 }

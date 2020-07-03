@@ -13,9 +13,7 @@ const About = ({ page }) => {
               {`
             At Petology, we provide pet supply and grooming service for your
             beloved dogs. We sell a wide selection and high-quality product just
-            for your dogs. Our grooming service will make your dogs clean and
-            stylish. We only use the best grooming product to groom your dog and
-            we have the best groomer to groom your dog.
+            for your dogs.
           `}
             </h4>
           </div>
@@ -33,9 +31,7 @@ const About = ({ page }) => {
               {`
             At Petology, we provide pet supply and grooming service for your
             beloved dogs. We sell a wide selection and high-quality product just
-            for your dogs. Our grooming service will make your dogs clean and
-            stylish. We only use the best grooming product to groom your dog and
-            we have the best groomer to groom your dog.
+            for your dogs.
           `}
             </h4>
           </div>
