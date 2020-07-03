@@ -9,7 +9,7 @@ import {
 import Axios from "axios";
 import { API_URL } from "../../../constants/API";
 import About from "../../screens/About/About";
-import Footer from "../Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   const [carousel, setCarousel] = useState({

@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import Footer from "../Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 const About = ({ page }) => {
   if (page === "home") {

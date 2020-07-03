@@ -2,7 +2,6 @@ import React from "react";
 import "./Shop.css";
 import Navbar from "react-bootstrap/Navbar";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import InputUI from "../../components/Input/Input";
 
 const Shop = () => {
   return (
@@ -10,14 +9,14 @@ const Shop = () => {
       <div className="col pr-0">
         <Navbar className="shop-navbar-container">
           <div className="category-container">
-            <div className="category">All</div>
-            <div className="category">Food</div>
-            <div className="category">Treats</div>
-            <div className="category">Toys</div>
-            <div className="category">Medicines</div>
-            <div className="category">Grooming</div>
-            <div className="category">Supplies</div>
-            <div className="category">Accessories</div>
+            <div className="category pr-2">All</div>
+            <div className="category pr-2">Food</div>
+            <div className="category pr-2">Treats</div>
+            <div className="category pr-2">Toys</div>
+            <div className="category pr-2">Medicines</div>
+            <div className="category pr-2">Grooming</div>
+            <div className="category pr-2">Supplies</div>
+            <div className="category pr-2">Accessories</div>
           </div>
           <input
             type="text"

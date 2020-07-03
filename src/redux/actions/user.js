@@ -13,32 +13,38 @@ export const registerHandler = (newUser) => {
     const { username, fullName, email, password, repeatPass } = newUser;
     if (username !== "" && fullName !== "" && email !== "" && password !== "") {
       if (password === repeatPass) {
-        Axios.get(`${API_URL}/users`, {
+        Axios.get(`${API_URL}/users/username`, {
           params: {
             username,
           },
         })
           .then((res) => {
-            if (res.data.length > 0) {
+            if (res.data) {
               dispatch({
                 type: ON_LOGIN_FAIL,
                 payload: "The username already exists. Please try another one",
               });
             } else {
-              Axios.get(`${API_URL}/users`, {
+              Axios.get(`${API_URL}/users/email`, {
                 params: {
                   email,
                 },
               })
                 .then((res) => {
-                  if (res.data.length > 0) {
+                  if (res.data) {
                     dispatch({
                       type: ON_LOGIN_FAIL,
                       payload:
                         "The email address already used. Please try another one",
                     });
                   } else {
-                    Axios.post(`${API_URL}/users`, { ...newUser, role: "user" })
+                    Axios.post(`${API_URL}/users/register`, {
+                      username,
+                      fullName,
+                      email,
+                      password,
+                      role: "user",
+                    })
                       .then((res) => {
                         dispatch({
                           type: ON_LOGIN_SUCCESS,
@@ -76,23 +82,23 @@ export const registerHandler = (newUser) => {
 export const loginHandler = (userData) => {
   return (dispatch) => {
     const { username, password } = userData;
-    Axios.get(`${API_URL}/users`, {
+    Axios.get(`${API_URL}/users/username`, {
       params: {
         username,
       },
     })
       .then((res) => {
-        if (res.data.length > 0) {
-          Axios.get(`${API_URL}/users`, {
+        if (res.data) {
+          Axios.get(`${API_URL}/users/login/${res.data.id}`, {
             params: {
               password,
             },
           })
             .then((res) => {
-              if (res.data.length > 0) {
+              if (res.data) {
                 dispatch({
                   type: ON_LOGIN_SUCCESS,
-                  payload: res.data[0],
+                  payload: res.data,
                 });
               } else {
                 dispatch({
@@ -105,28 +111,10 @@ export const loginHandler = (userData) => {
               console.log(err);
             });
         } else {
-          Axios.get(`${API_URL}/users`, {
-            params: {
-              password,
-            },
-          })
-            .then((res) => {
-              console.log(res.data);
-              if (res.data.length > 0 && username !== res.data[0].username) {
-                dispatch({
-                  type: ON_LOGIN_FAIL,
-                  payload: "Please enter a correct username",
-                });
-              } else {
-                dispatch({
-                  type: ON_LOGIN_FAIL,
-                  payload: "Please enter a correct username and password",
-                });
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+          dispatch({
+            type: ON_LOGIN_FAIL,
+            payload: "Please enter a correct username",
+          });
         }
       })
       .catch((err) => {
@@ -137,16 +125,12 @@ export const loginHandler = (userData) => {
 
 export const keepLogin = (userData) => {
   return (dispatch) => {
-    Axios.get(`${API_URL}/users`, {
-      params: {
-        id: userData.id,
-      },
-    })
+    Axios.get(`${API_URL}/users/${userData.id}`)
       .then((res) => {
-        if (res.data.length > 0) {
+        if (res.data) {
           dispatch({
             type: ON_LOGIN_SUCCESS,
-            payload: res.data[0],
+            payload: res.data,
           });
         } else {
           dispatch({

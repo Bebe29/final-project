@@ -36,8 +36,8 @@ const NavbarUI = ({ user }) => {
           <ButtonUI type="text">Contact Us</ButtonUI>
         </Link>
       </div>
-      <div className="user-container pr-4">
-        {user.id ? (
+      {user.id ? (
+        <div className="user-container pr-2">
           <div className="d-flex justify-content-center align-items-center">
             <Link
               to="/login"
@@ -64,7 +64,9 @@ const NavbarUI = ({ user }) => {
               </DropdownMenu>
             </Dropdown>
           </div>
-        ) : (
+        </div>
+      ) : (
+        <div className="user-container pr-4">
           <div className="row">
             <Link
               to="/login"
@@ -81,8 +83,8 @@ const NavbarUI = ({ user }) => {
               <ButtonUI type="contain">Sign Up</ButtonUI>
             </Link>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </Navbar>
   );
 };
