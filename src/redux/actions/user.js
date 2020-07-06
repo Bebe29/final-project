@@ -1,12 +1,16 @@
 import userTypes from "../types/user";
 import Axios from "axios";
+import Cookie from "universal-cookie";
 import { API_URL } from "../../constants/API";
 
 const {
   ON_LOGIN_SUCCESS,
   ON_LOGIN_FAIL,
-  //   ON_LOGOUT_SUCCESS,
+  ON_LOGOUT_SUCCESS,
+  COOKIE_CHECK,
 } = userTypes;
+
+const cookieObj = new Cookie();
 
 export const registerHandler = (newUser) => {
   return (dispatch) => {
@@ -147,6 +151,13 @@ export const keepLogin = (userData) => {
 
 export const cookieChecker = () => {
   return {
-    type: "COOKIE_CHECK",
+    type: COOKIE_CHECK,
+  };
+};
+
+export const logoutHandler = () => {
+  cookieObj.remove("authData", { path: "/" });
+  return {
+    type: ON_LOGOUT_SUCCESS,
   };
 };

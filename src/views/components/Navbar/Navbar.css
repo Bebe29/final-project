@@ -50,6 +50,10 @@
   font-size: 85%;
 }
 
+.dropdown-item.logout {
+  font-weight: bold;
+}
+
 .dropdown-item:hover {
   background-color: #fff6f2;
 }

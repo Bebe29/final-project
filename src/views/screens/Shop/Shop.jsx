@@ -13,7 +13,7 @@ const Shop = () => {
             <div className="category pr-2">Food</div>
             <div className="category pr-2">Treats</div>
             <div className="category pr-2">Toys</div>
-            <div className="category pr-2">Medicines</div>
+            <div className="category pr-2">Medicine</div>
             <div className="category pr-2">Grooming</div>
             <div className="category pr-2">Supplies</div>
             <div className="category pr-2">Accessories</div>
