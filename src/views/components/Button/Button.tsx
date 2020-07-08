@@ -2,7 +2,14 @@ import React, { CSSProperties } from "react";
 import "./Button.css";
 
 type ButtonType = {
-  type?: "contain" | "outline" | "text" | "disable" | "contain-dark" | "user";
+  type?:
+    | "contain"
+    | "outline"
+    | "text"
+    | "disable"
+    | "contain-dark"
+    | "user"
+    | "outline-dark";
   children: any;
   style?: CSSProperties;
   className?: string;

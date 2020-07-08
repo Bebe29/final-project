@@ -64,6 +64,22 @@
   color: #d7c3bb;
 }
 
+.custom-btn-outline-dark {
+  border: 1px solid #645954;
+  color: #645954;
+}
+
+.custom-btn-outline-dark:hover {
+  border: 1px solid #312a27;
+  color: #312a27;
+}
+
+.custom-btn-outline-dark:active {
+  cursor: wait;
+  border: 1px solid #7f6f68;
+  color: #7f6f68;
+}
+
 .custom-btn-contain {
   border: 1px solid #e9d8d0;
   background-color: #e9d8d0;

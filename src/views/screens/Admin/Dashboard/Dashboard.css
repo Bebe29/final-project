@@ -54,16 +54,40 @@
 }
 
 select {
+  color: #7f6f68;
   border: none;
   outline: 0 !important;
 }
 
 select:focus,
 select:active {
+  color: #7f6f68 !important;
   outline: none !important;
   box-shadow: none !important;
 }
 
 select option {
+  color: #7f6f68;
   background-color: #f8ebe6;
+}
+
+input[type="file"] {
+  /* display: none; */
+  appearance: none;
+  background-color: #e9d8d0;
+  border: #e9d8d0;
+  border-radius: 5px;
+  padding: 8px 10px;
+  width: 100%;
+  outline: none !important;
+  font-size: 85%;
+  color: #7f6f68;
+  transition: all ease-in-out 200ms;
+}
+
+::-webkit-file-upload-button,
+::-ms-browse {
+  background: black;
+  color: red;
+  padding: 1em;
 }

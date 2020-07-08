@@ -83,7 +83,7 @@ const NavbarUI = ({ user, logoutHandler }) => {
                     </DropdownItem>
                     <DropdownItem tag="div" className="dropdown-item logout">
                       <Link
-                        to=""
+                        to="/"
                         style={{ textDecoration: "none", color: "inherit" }}
                         onClick={onLogout}
                       >
@@ -131,7 +131,7 @@ const NavbarUI = ({ user, logoutHandler }) => {
                       onClick={onLogout}
                     >
                       <Link
-                        to=""
+                        to="/"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
                         Log Out

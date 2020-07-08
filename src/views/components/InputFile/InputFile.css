@@ -1,0 +1,58 @@
+:root {
+  --accent-default: #7f6f68;
+  --accent-disable: #94837c;
+  --accent-dark: #b5a59e;
+  --accent-medium: #d7c3bb;
+  --accent-light: #e9d8d0;
+  --accent-very-light: #f8ebe6;
+}
+
+.inputFile {
+  width: 100%;
+}
+
+.inputFile-input {
+  background-color: #e9d8d0;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 8px 15px;
+  margin: 0;
+  outline: none;
+  width: 100%;
+  vertical-align: middle;
+  font-style: normal;
+  font-size: 85%;
+  color: #7f6f68;
+  transition: all ease-in-out 200ms;
+}
+
+.inputFile-btn {
+  width: fit-content;
+  padding: 8px 15px;
+  vertical-align: middle;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 85%;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  border-radius: 0 5px 5px 0;
+  transition: all ease-in-out 200ms;
+  margin: 0;
+  border: 1px solid #7f6f68;
+  background-color: #7f6f68;
+  color: #f8ebe6;
+}
+
+.inputFile-btn:hover {
+  border: 1px solid #94837c;
+  background-color: #94837c;
+  color: #f8ebe6;
+}
+
+.inputFile-btn:active {
+  cursor: wait;
+  border: 1px solid #b5a59e;
+  background-color: #b5a59e;
+  color: #f8ebe6;
+}
