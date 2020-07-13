@@ -18,15 +18,19 @@ const VerifyAccount = ({ user, logoutHandler, verifyLoginHandler }) => {
   });
   const cookie = new Cookie();
 
-  useEffect(() => {
-    if (cookie.get("authData", { path: "/" }) && !userVerified) {
-      console.log(userVerified);
-      logoutHandler();
-    } else {
-      console.log(user);
-      // cookie.set("authData", JSON.stringify(user), { path: "/" });
-    }
-  });
+  // useEffect(() => {
+  //   // if (cookie.get("authData", { path: "/" }) && !userVerified) {
+  //   //   console.log(userVerified);
+  //   //   logoutHandler();
+  //   // } else {
+  //   //   console.log(user);
+  //   // }
+  //   if (userVerified) {
+  //   } else {
+  //     console.log(userVerified);
+  //     logoutHandler();
+  //   }
+  // });
 
   const verifyHandler = () => {
     const urlToken = new URLSearchParams(window.location.search).get("token");
