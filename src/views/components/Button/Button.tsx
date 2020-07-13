@@ -9,7 +9,8 @@ type ButtonType = {
     | "disable"
     | "contain-dark"
     | "user"
-    | "outline-dark";
+    | "outline-dark"
+    | "text-dark";
   children: any;
   style?: CSSProperties;
   className?: string;

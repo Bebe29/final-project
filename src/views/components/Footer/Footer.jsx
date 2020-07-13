@@ -18,15 +18,15 @@ const Footer = () => {
               <div className="footer-contact-container-content">
                 <div className="footer-contact-content content-md">
                   <img src={Location} alt="" width="10px" />
-                  <div className="ml-2">{`Jakarta`}</div>
+                  <div className="ml-2">{`Jln. Boulevard BSD Timur, Serpong, Tangerang Selatan`}</div>
                 </div>
                 <div className="footer-contact-content content-md p-2">
                   <img src={Phone} alt="" width="13px" />
-                  <div className="ml-2">{`08924809812049`}</div>
+                  <div className="ml-2">{`081234567890`}</div>
                 </div>
                 <div className="footer-contact-content content-md">
                   <img src={Email} alt="" width="13px" />
-                  <div className="ml-2">{`Petology@gmail.com`}</div>
+                  <div className="ml-2">{`petology@gmail.com`}</div>
                 </div>
               </div>
             </div>

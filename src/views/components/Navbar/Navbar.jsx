@@ -39,9 +39,9 @@ const NavbarUI = ({ user, logoutHandler }) => {
         <Link to="/shop" style={{ textDecoration: "none", color: "inherit" }}>
           <ButtonUI type="text">Shop</ButtonUI>
         </Link>
-        <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
+        {/* <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
           <ButtonUI type="text">Contact Us</ButtonUI>
-        </Link>
+        </Link> */}
       </div>
       {user.id ? (
         <div className="user-container pr-2">
@@ -67,7 +67,7 @@ const NavbarUI = ({ user, logoutHandler }) => {
                   <>
                     <DropdownItem tag="div" className="dropdown-item">
                       <Link
-                        to=""
+                        to="/profile"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
                         Profile

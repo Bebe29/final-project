@@ -48,6 +48,22 @@
   color: #d7c3bb;
 }
 
+.custom-btn-text-dark {
+  border: transparent;
+  color: #312a27;
+}
+
+.custom-btn-text-dark:hover {
+  border: transparent;
+  color: #7f6f68;
+}
+
+.custom-btn-text-dark:active {
+  cursor: wait;
+  border: transparent;
+  color: #645954;
+}
+
 .custom-btn-outline {
   border: 1px solid #e9d8d0;
   color: #e9d8d0;

@@ -131,7 +131,7 @@ class Home extends Component {
         <div className="content-md">Hello</div>
         <div className="content-sm">Hello</div>
         <div className="content-xs">Hello</div>
-        <caption>Hello</caption>
+        {/* <caption>Hello</caption> */}
         <div className="">
           <Footer />
         </div>

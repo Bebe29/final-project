@@ -30,7 +30,7 @@ const InputUI = (property: InputStyle) => {
       pattern={pattern}
       value={value}
       style={style}
-      className={`custom-input mt-3 ${className}`}
+      className={`custom-input ${className}`}
       placeholder={placeholder}
       onChange={onChange}
     />

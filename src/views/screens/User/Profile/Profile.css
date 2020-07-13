@@ -1,0 +1,28 @@
+:root {
+  --accent-default: #7f6f68;
+  --accent-disable: #94837c;
+  --accent-dark: #b5a59e;
+  --accent-medium: #d7c3bb;
+  --accent-light: #e9d8d0;
+  --accent-very-light: #f8ebe6;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3% 10%;
+}
+
+.profile-content-container {
+  display: flex;
+  flex-direction: column;
+  padding: 6%;
+  background-color: #bca79e;
+  color: #fffcfb;
+  width: 450px;
+}
+
+.content-wrap {
+  word-wrap: break-word;
+}

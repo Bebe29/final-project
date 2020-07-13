@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 import "../../Auth/Form.css";
+
 import { Redirect, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import Cookie from "universal-cookie";
+
 import InputUI from "../../../components/Input/Input";
 import ButtonUI from "../../../components/Button/Button";
 import PasswordUI from "../../../components/InputPassword/Password";
-import { connect } from "react-redux";
 import { registerHandler } from "../../../../redux/actions";
-import Cookie from "universal-cookie";
 
 const Register = ({ user, onRegister }) => {
   const [input, setInput] = useState({
@@ -22,10 +24,12 @@ const Register = ({ user, onRegister }) => {
     showRepeatPassword: false,
   });
 
-  if (user.id) {
-    const cookie = new Cookie();
-    cookie.set("authData", JSON.stringify(user), { path: "/" });
-  }
+  useEffect(() => {
+    if (user.id) {
+      const cookie = new Cookie();
+      cookie.set("authData", JSON.stringify(user), { path: "/" });
+    }
+  }, [user]);
 
   const inputHandler = (e, field) => {
     const { value } = e.target;
@@ -66,16 +70,19 @@ const Register = ({ user, onRegister }) => {
           <div className="content-sm error-msg">{user.errMsg}</div>
         ) : null}
         <InputUI
+          className="mt-3"
           value={input.username}
           placeholder="Username"
           onChange={(e) => inputHandler(e, "username")}
         />
         <InputUI
+          className="mt-3"
           value={input.fullName}
           placeholder="Full Name"
           onChange={(e) => inputHandler(e, "fullName")}
         />
         <InputUI
+          className="mt-3"
           value={input.email}
           placeholder="Email"
           onChange={(e) => inputHandler(e, "email")}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import "../../Auth/Form.css";
 import { Redirect, Link } from "react-router-dom";
@@ -18,10 +18,12 @@ const Login = ({ user, onLogin }) => {
     showPassword: false,
   });
 
-  if (user.id) {
-    const cookie = new Cookie();
-    cookie.set("authData", JSON.stringify(user), { path: "/" });
-  }
+  useEffect(() => {
+    if (user.id) {
+      const cookie = new Cookie();
+      cookie.set("authData", JSON.stringify(user), { path: "/" });
+    }
+  }, [user]);
 
   const inputHandler = (e, field) => {
     const { value } = e.target;
@@ -62,6 +64,7 @@ const Login = ({ user, onLogin }) => {
           <div className="content-sm error-msg">{user.errMsg}</div>
         ) : null}
         <InputUI
+          className="mt-3"
           value={input.username}
           placeholder="Username"
           onChange={(e) => inputHandler(e, "username")}
@@ -73,10 +76,17 @@ const Login = ({ user, onLogin }) => {
           onChange={(e) => inputHandler(e, "password")}
           onClick={() => showHandler("showPassword")}
         />
-        <div
-          className="content-sm mt-2"
-          style={{ color: "#645954" }}
-        >{`Forgot your password?`}</div>
+        <div className="content-sm mt-2">
+          <Link
+            to="/forgot"
+            style={{
+              textDecoration: "none",
+              color: "#645954",
+            }}
+          >
+            Forgot your password?
+          </Link>
+        </div>
         <div className="d-flex justify-content-center mt-4">
           <ButtonUI type="contain-dark" onClick={loginBtnHandler}>
             Login

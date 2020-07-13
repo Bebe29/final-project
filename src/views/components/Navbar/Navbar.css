@@ -14,7 +14,7 @@
 .logo-container {
   display: flex;
   justify-content: flex-start;
-  flex: 1;
+  flex: 2;
 }
 
 .menu-container {
@@ -26,7 +26,7 @@
 .user-container {
   display: flex;
   justify-content: flex-end;
-  flex: 1;
+  flex: 2;
 }
 
 .navbar-container {

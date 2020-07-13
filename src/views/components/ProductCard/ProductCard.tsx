@@ -11,13 +11,14 @@ interface ProductCardData {
 type ProductCardProps = {
   data: ProductCardData;
   className?: string;
+  onClick?: any;
 };
 
 const ProductCard = (property: ProductCardProps) => {
   const { data } = property;
-  const { id, productName, price, image } = data;
+  const { productName, price, image } = data;
   return (
-    <div className="card-container" key={`cardId-${id}`}>
+    <div className="card-container m-2">
       <img src={image} alt="" className="card-image" />
       <div>
         <div className="subtitle-md mb-1 mt-2">{productName}</div>

@@ -32,7 +32,7 @@
   border: #e9d8d0;
   border-radius: 5px;
   padding: 8px 10px;
-  width: 100%;
+  width: 100% !important;
   outline: none !important;
   font-size: 85%;
   color: #7f6f68;
@@ -71,23 +71,16 @@ select option {
   background-color: #f8ebe6;
 }
 
-input[type="file"] {
-  /* display: none; */
-  appearance: none;
-  background-color: #e9d8d0;
-  border: #e9d8d0;
-  border-radius: 5px;
-  padding: 8px 10px;
-  width: 100%;
-  outline: none !important;
-  font-size: 85%;
-  color: #7f6f68;
-  transition: all ease-in-out 200ms;
+.product-table tr:hover {
+  cursor: pointer;
 }
 
-::-webkit-file-upload-button,
-::-ms-browse {
-  background: black;
-  color: red;
-  padding: 1em;
+.collapse-item {
+  background-color: rgba(255, 246, 242, 0.8);
+}
+
+.collapse-item img {
+  height: 150px;
+  object-fit: contain;
+  margin: 0.5% 2.5%;
 }

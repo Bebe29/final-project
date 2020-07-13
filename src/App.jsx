@@ -20,6 +20,11 @@ import UserMember from "./views/screens/Admin/UserMember/UserMember";
 import Dashboard from "./views/screens/Admin/Dashboard/Dashboard";
 import Report from "./views/screens/Admin/Report/Report";
 import Payment from "./views/screens/Admin/Payment/Payment";
+import ProductDetail from "./views/screens/Product/ProductDetail";
+import VerifyAccount from "./views/screens/User/VerifyAccount/VerifyAccount";
+import Profile from "./views/screens/User/Profile/Profile";
+import ForgotPassword from "./views/screens/ForgotPassword/ForgotPassword";
+import ResetPassword from "./views/screens/ForgotPassword/ResetPassword";
 
 const cookieObj = new Cookie();
 
@@ -56,6 +61,11 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/shop" component={Shop} />
+            <Route exact path="/product/:productId" component={ProductDetail} />
+            <Route exact path="/verify/:username" component={VerifyAccount} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/forgot" component={ForgotPassword} />
+            <Route exact path="/forgot/:username" component={ResetPassword} />
             {this.renderAdminRoute()}
             <Route exact path="*" component={PageNotFound} />
           </Switch>

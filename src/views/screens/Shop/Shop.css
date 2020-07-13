@@ -59,3 +59,28 @@
 .shop-input:focus {
   background-color: #f8ebe6;
 }
+
+.short-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .shop-navbar-container {
+    background-color: #94837c;
+    padding: 1% 2%;
+    border: 1px solid #94837c;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .category-container {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+  }
+}

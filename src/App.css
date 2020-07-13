@@ -18,21 +18,24 @@ tbody {
   color: #7f6f68;
   background-color: #f8ebe6;
   text-align: center;
+  vertical-align: middle;
 }
 
 tbody tr:hover {
   color: #7f6f68 !important;
-  background-color: rgba(181, 165, 158, 0.4) !important;
+  /* background-color: rgba(181, 165, 158, 0.4) !important; */
+  background-color: rgba(215, 195, 187, 0.7) !important;
 }
 
-tbody tr:nth-child(even) {
+/* tbody tr:nth-child(even) {
   background-color: rgba(215, 195, 187, 0.65);
-}
+} */
 
 tr,
 th,
 td {
   border-color: #7f6f68 !important;
+  vertical-align: middle !important;
 }
 
 h1 {
