@@ -13,7 +13,6 @@ const init_state = {
   role: "",
   errMsg: "",
   cookieChecked: false,
-  activePage: "",
 };
 
 export default (state = init_state, action) => {

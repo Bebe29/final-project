@@ -20,6 +20,10 @@ tbody {
   text-align: center;
   vertical-align: middle;
 }
+tfoot {
+  color: #312a27;
+  background-color: #bca79e;
+}
 
 tbody tr:hover {
   color: #7f6f68 !important;

@@ -10,6 +10,7 @@ import Axios from "axios";
 import { API_URL } from "../../../constants/API";
 import About from "../About/About";
 import Footer from "../../components/Footer/Footer";
+import NewItem from "../NewItem/NewItem";
 
 class Home extends Component {
   state = {
@@ -115,23 +116,7 @@ class Home extends Component {
           </div>
         </div>
         <About page={"home"} />
-        <h1>Hello</h1>
-        <h2>Hello</h2>
-        <h3>Hello</h3>
-        <h4>Hello</h4>
-        <h5>Hello</h5>
-        <h6>Hello</h6>
-        <p>-------</p>
-        <div className="content-lg">Profile</div>
-        <div className="subtitle-lg">Hello</div>
-        <div className="subtitle-md">Hello</div>
-        <div className="subtitle-sm">Hello</div>
-        <div className="subtitle-xs">Hello</div>
-        <div className="content-lg">Hello</div>
-        <div className="content-md">Hello</div>
-        <div className="content-sm">Hello</div>
-        <div className="content-xs">Hello</div>
-        {/* <caption>Hello</caption> */}
+        <NewItem />
         <div className="">
           <Footer />
         </div>

@@ -49,12 +49,12 @@ const NavbarUI = ({ user, logoutHandler }) => {
             {user.role === "user" ? (
               <>
                 <Link
-                  to="/"
+                  to="/user/carts"
                   style={{ textDecoration: "none", color: "inherit" }}
                   className="mr-0 d-flex justify-content-center align-items-center"
                 >
                   <img src={Cart} alt="" width="20px" height="20px" />
-                  <div className="ml-1 circle-bg">20</div>
+                  {/* <div className="ml-1 circle-bg">20</div> */}
                 </Link>
               </>
             ) : null}
@@ -75,10 +75,10 @@ const NavbarUI = ({ user, logoutHandler }) => {
                     </DropdownItem>
                     <DropdownItem tag="div" className="dropdown-item">
                       <Link
-                        to=""
+                        to="/user/history"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        Wishlist
+                        History
                       </Link>
                     </DropdownItem>
                     <DropdownItem tag="div" className="dropdown-item logout">
@@ -93,14 +93,6 @@ const NavbarUI = ({ user, logoutHandler }) => {
                   </>
                 ) : (
                   <>
-                    <DropdownItem tag="div" className="dropdown-item">
-                      <Link
-                        to="/admin/members"
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
-                        User Member
-                      </Link>
-                    </DropdownItem>
                     <DropdownItem tag="div" className="dropdown-item">
                       <Link
                         to="/admin/dashboard"

@@ -66,6 +66,20 @@
   align-items: center;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination a {
+  color: #7f6f68 !important;
+}
+
+.pagination a:focus {
+  background-color: #e9d8d0 !important;
+}
+
 @media (max-width: 700px) {
   .shop-navbar-container {
     background-color: #94837c;

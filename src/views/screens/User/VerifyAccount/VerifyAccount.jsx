@@ -4,12 +4,12 @@ import ButtonUI from "../../../components/Button/Button";
 import Axios from "axios";
 import { API_URL } from "../../../../constants/API";
 import { connect } from "react-redux";
-import { logoutHandler, verifyLoginHandler } from "../../../../redux/actions";
+import { logoutHandler } from "../../../../redux/actions";
 import Cookie from "universal-cookie";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import swal from "sweetalert";
 
-const VerifyAccount = ({ user, logoutHandler, verifyLoginHandler }) => {
+const VerifyAccount = ({ user, logoutHandler }) => {
   const [userVerified, setUserVerified] = useState(false);
   let match = useRouteMatch({
     path: "/verify/:username",
@@ -18,19 +18,12 @@ const VerifyAccount = ({ user, logoutHandler, verifyLoginHandler }) => {
   });
   const cookie = new Cookie();
 
-  // useEffect(() => {
-  //   // if (cookie.get("authData", { path: "/" }) && !userVerified) {
-  //   //   console.log(userVerified);
-  //   //   logoutHandler();
-  //   // } else {
-  //   //   console.log(user);
-  //   // }
-  //   if (userVerified) {
-  //   } else {
-  //     console.log(userVerified);
-  //     logoutHandler();
-  //   }
-  // });
+  useEffect(() => {
+    if (cookie.get("authData", { path: "/" }) && !userVerified) {
+      console.log(userVerified);
+      logoutHandler();
+    }
+  });
 
   const verifyHandler = () => {
     const urlToken = new URLSearchParams(window.location.search).get("token");
@@ -46,9 +39,8 @@ const VerifyAccount = ({ user, logoutHandler, verifyLoginHandler }) => {
           "We have successfully verified your account",
           "success"
         );
-        verifyLoginHandler(res.data);
-        // setUserVerified(true);
-        console.log(user);
+        setUserVerified(true);
+        // console.log(user);
       })
       .catch((err) => {
         console.log(err);
@@ -56,7 +48,7 @@ const VerifyAccount = ({ user, logoutHandler, verifyLoginHandler }) => {
   };
 
   if (userVerified) {
-    return <Redirect to="/" />;
+    return <Redirect to="/login" />;
   }
   return (
     <div className="verify-container">
@@ -77,7 +69,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   logoutHandler,
-  verifyLoginHandler,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VerifyAccount);

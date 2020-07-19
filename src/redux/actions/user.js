@@ -127,33 +127,6 @@ export const loginHandler = (userData) => {
   };
 };
 
-export const verifyLoginHandler = (userData) => {
-  return (dispatch) => {
-    const { username } = userData;
-    Axios.get(`${API_URL}/users/username`, {
-      params: {
-        username,
-      },
-    })
-      .then((res) => {
-        if (res.data) {
-          dispatch({
-            type: ON_LOGIN_SUCCESS,
-            payload: res.data,
-          });
-        } else {
-          dispatch({
-            type: ON_LOGIN_FAIL,
-            payload: "Please enter a correct username",
-          });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
-
 export const keepLogin = (userData) => {
   return (dispatch) => {
     Axios.get(`${API_URL}/users/${userData.id}`)

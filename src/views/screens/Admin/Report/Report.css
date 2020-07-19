@@ -1,7 +1,16 @@
-.usermember-container {
+:root {
+  --accent-default: #7f6f68;
+  --accent-disable: #94837c;
+  --accent-dark: #b5a59e;
+  --accent-medium: #d7c3bb;
+  --accent-light: #e9d8d0;
+  --accent-very-light: #f8ebe6;
+}
+
+.history-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 15% 5%;
+  justify-content: center;
+  padding: 3% 10%;
 }

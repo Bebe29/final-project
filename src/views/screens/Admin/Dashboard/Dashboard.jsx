@@ -22,6 +22,7 @@ class Dashboard extends Component {
       stock: "",
       productDescription: "",
       image: "",
+      type: "",
     },
     categoryId: "",
     selectedFile: null,
@@ -34,12 +35,21 @@ class Dashboard extends Component {
       productDescription: "",
       image: "",
       category: {},
+      type: "",
+    },
+    dataTypeProduct: [],
+    dataTypePackage: [],
+    package: {
+      packageId: 0,
+      productId: 0,
     },
   };
 
   componentDidMount() {
     this.getCategoryData();
-    this.getProductData();
+    this.getAllProductData();
+    this.getTypeProduct();
+    this.getTypePrackage();
   }
 
   getCategoryData = () => {
@@ -53,11 +63,31 @@ class Dashboard extends Component {
       });
   };
 
-  getProductData = () => {
-    Axios.get(`${API_URL}/products`)
+  getAllProductData = () => {
+    Axios.get(`${API_URL}/products/all`)
       .then((res) => {
         // console.log(res.data);
         this.setState({ productDataList: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  getTypeProduct = () => {
+    Axios.get(`${API_URL}/products/typeProduct`)
+      .then((res) => {
+        this.setState({ dataTypeProduct: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  getTypePrackage = () => {
+    Axios.get(`${API_URL}/products/typePackage`)
+      .then((res) => {
+        this.setState({ dataTypePackage: res.data });
       })
       .catch((err) => {
         console.log(err);
@@ -75,6 +105,28 @@ class Dashboard extends Component {
     });
   };
 
+  renderPackageList = () => {
+    return this.state.dataTypePackage.map((val) => {
+      const { id, productName } = val;
+      return (
+        <option key={`Package-${id}`} value={`${id}`}>
+          {productName}
+        </option>
+      );
+    });
+  };
+
+  renderProductList = () => {
+    return this.state.dataTypeProduct.map((val) => {
+      const { id, productName } = val;
+      return (
+        <option key={`Product-${id}`} value={`${id}`}>
+          {productName}
+        </option>
+      );
+    });
+  };
+
   renderProduct = () => {
     return this.state.productDataList.map((val, idx) => {
       const {
@@ -85,6 +137,7 @@ class Dashboard extends Component {
         productDescription,
         image,
         category,
+        type,
       } = val;
       return (
         <>
@@ -133,6 +186,7 @@ class Dashboard extends Component {
                     <div className="">
                       Category: {category ? category.categoryName : ""}
                     </div>
+                    <div className="">Type: {type}</div>
                     <div className="">
                       <div className="">Description:</div>
                       <div className="">{productDescription}</div>
@@ -167,7 +221,7 @@ class Dashboard extends Component {
 
   fileChangeHandler = (e) => {
     this.setState({ selectedFile: e.target.files[0] });
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
   };
 
   inputHandler = (e, field, form) => {
@@ -189,9 +243,45 @@ class Dashboard extends Component {
     }
   };
 
-  categoryHandler = (e, field) => {
+  selectOptionHandler = (e, field, form) => {
     const { value } = e.target;
-    this.setState({ [field]: value });
+    if (field === "type" || field === "packageId" || field === "productId") {
+      this.setState({
+        [form]: {
+          ...this.state[form],
+          [field]: value,
+        },
+      });
+    } else {
+      this.setState({ [field]: value });
+    }
+  };
+
+  addProductToPackage = () => {
+    Axios.post(
+      `${API_URL}/products/${this.state.package.productId}/package/${this.state.package.packageId}`
+    )
+      .then((res) => {
+        // console.log(res.data);
+        swal(
+          "Success!",
+          "The product has been added to the package",
+          "success"
+        );
+        this.setState({
+          package: {
+            packageId: 0,
+            productId: 0,
+          },
+          activePage: "Show Product",
+        });
+        this.getAllProductData();
+        this.getTypeProduct();
+        this.getTypePrackage();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   addNewProductHandler = () => {
@@ -223,24 +313,60 @@ class Dashboard extends Component {
             this.state.newProductForm
           )
             .then((res) => {
-              swal(
-                "Success!",
-                "The product has been added to the list",
-                "success"
-              );
-              this.setState({
-                newProductForm: {
-                  productName: "",
-                  price: "",
-                  stock: "",
-                  productDescription: "",
-                  image: "",
-                },
-                categoryId: "",
-                selectedFile: null,
-                activePage: "Show Product",
-              });
-              this.getProductData();
+              if (res.data.type === "Package") {
+                // console.log(res.data.type);
+                Axios.post(`${API_URL}/packages`, {
+                  idInProduct: res.data.id,
+                })
+                  .then((res) => {
+                    swal(
+                      "Success!",
+                      "The product has been added to the list",
+                      "success"
+                    );
+                    this.setState({
+                      newProductForm: {
+                        productName: "",
+                        price: "",
+                        stock: "",
+                        productDescription: "",
+                        image: "",
+                        type: "",
+                      },
+                      categoryId: "",
+                      selectedFile: null,
+                      activePage: "Show Product",
+                    });
+                    this.getAllProductData();
+                    this.getTypeProduct();
+                    this.getTypePrackage();
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              } else {
+                swal(
+                  "Success!",
+                  "The product has been added to the list",
+                  "success"
+                );
+                this.setState({
+                  newProductForm: {
+                    productName: "",
+                    price: "",
+                    stock: "",
+                    productDescription: "",
+                    image: "",
+                    type: "",
+                  },
+                  categoryId: "",
+                  selectedFile: null,
+                  activePage: "Show Product",
+                });
+                this.getAllProductData();
+                this.getTypeProduct();
+                this.getTypePrackage();
+              }
             })
             .catch((err) => {
               swal(
@@ -318,18 +444,51 @@ class Dashboard extends Component {
             category: res.data,
           },
         });
-        console.log(this.state.editProductForm);
+        // console.log(this.state.editProductForm);
         Axios.put(`${API_URL}/products`, this.state.editProductForm)
           .then((res) => {
-            swal(
-              "Success!",
-              "The product has been added to the list",
-              "success"
-            );
-            this.setState({
-              modalOpen: false,
-            });
-            this.getProductData();
+            // console.log(res.data);
+            if (res.data.type === "Package") {
+              Axios.post(`${API_URL}/packages`, {
+                idInProduct: res.data.id,
+              })
+                .then((res) => {
+                  swal(
+                    "Success!",
+                    "The product has been added to the list",
+                    "success"
+                  );
+                  this.setState({
+                    selectedFile: null,
+                    modalOpen: false,
+                  });
+                  this.getAllProductData();
+                  this.getTypeProduct();
+                  this.getTypePrackage();
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            } else {
+              Axios.delete(`${API_URL}/packages/${res.data.id}`)
+                .then((res) => {
+                  swal(
+                    "Success!",
+                    "The product has been added to the list",
+                    "success"
+                  );
+                  this.setState({
+                    selectedFile: null,
+                    modalOpen: false,
+                  });
+                  this.getAllProductData();
+                  this.getTypeProduct();
+                  this.getTypePrackage();
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }
           })
           .catch((err) => {
             swal("Error!", "Couldn't update the changes", "error");
@@ -353,7 +512,9 @@ class Dashboard extends Component {
             ...this.state.activeProduct.filter((item) => item !== idx),
           ],
         });
-        this.getProductData();
+        this.getAllProductData();
+        this.getTypeProduct();
+        this.getTypePrackage();
       })
       .catch((err) => {
         swal("Error!", "The product couldn't be removed", "error");
@@ -378,11 +539,19 @@ class Dashboard extends Component {
           >
             Add Product
           </ButtonUI>
+          <ButtonUI
+            type="text-dark"
+            onClick={() =>
+              this.setState({ activePage: "Add Product To Package" })
+            }
+          >
+            Add Products To Package
+          </ButtonUI>
         </div>
         {this.state.activePage === "Show Product" ? (
           <Table hover responsive>
             <thead>
-              <tr>
+              <tr key={`product-head`}>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Price</th>
@@ -392,7 +561,7 @@ class Dashboard extends Component {
             </thead>
             <tbody className="product-table">{this.renderProduct()}</tbody>
           </Table>
-        ) : (
+        ) : this.state.activePage === "Add Product" ? (
           <div className="addProduct-container">
             <div className="addProduct-form">
               <h4>Add New Product</h4>
@@ -436,12 +605,29 @@ class Dashboard extends Component {
               <select
                 className="custom-select input-group mt-3"
                 value={this.state.categoryId}
-                onChange={(e) => this.categoryHandler(e, "categoryId")}
+                onChange={(e) => this.selectOptionHandler(e, "categoryId")}
               >
                 <option defaultValue value="">
                   Category
                 </option>
                 {this.renderCategory()}
+              </select>
+              <select
+                className="custom-select input-group mt-3"
+                value={this.state.newProductForm.type}
+                onChange={(e) =>
+                  this.selectOptionHandler(e, "type", "newProductForm")
+                }
+              >
+                <option defaultValue value="">
+                  Type
+                </option>
+                <option value="Product" key={`new-product`}>
+                  Product
+                </option>
+                <option value="Package" key={`new-package`}>
+                  Package
+                </option>
               </select>
               <div className="d-flex justify-content-center mt-4">
                 <ButtonUI
@@ -461,6 +647,65 @@ class Dashboard extends Component {
                         stock: "",
                         productDescription: "",
                         image: "",
+                        type: "",
+                      },
+                      categoryId: "",
+                      selectedFile: null,
+                    })
+                  }
+                >
+                  Clear
+                </ButtonUI>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="addProduct-container">
+            <div className="addProduct-form">
+              <h4>Add Products To Package</h4>
+              <select
+                className="custom-select input-group mt-3"
+                value={this.state.package.packageId}
+                onChange={(e) =>
+                  this.selectOptionHandler(e, "packageId", "package")
+                }
+              >
+                <option defaultValue value="0">
+                  Package
+                </option>
+                {this.renderPackageList()}
+              </select>
+              <select
+                className="custom-select input-group mt-3"
+                value={this.state.package.productId}
+                onChange={(e) =>
+                  this.selectOptionHandler(e, "productId", "package")
+                }
+              >
+                <option defaultValue value="0">
+                  Product
+                </option>
+                {this.renderProductList()}
+              </select>
+              <div className="d-flex justify-content-center mt-4">
+                <ButtonUI
+                  type="contain-dark"
+                  onClick={this.addProductToPackage}
+                  className="mr-4"
+                >
+                  Add
+                </ButtonUI>
+                <ButtonUI
+                  type="outline-dark"
+                  onClick={() =>
+                    this.setState({
+                      newProductForm: {
+                        productName: "",
+                        price: "",
+                        stock: "",
+                        productDescription: "",
+                        image: "",
+                        type: "",
                       },
                       categoryId: "",
                       selectedFile: null,
@@ -526,12 +771,29 @@ class Dashboard extends Component {
               <select
                 className="custom-select input-group mt-3"
                 value={this.state.categoryId}
-                onChange={(e) => this.categoryHandler(e, "categoryId")}
+                onChange={(e) => this.selectOptionHandler(e, "categoryId")}
               >
                 <option defaultValue value="">
                   Category
                 </option>
                 {this.renderCategory()}
+              </select>
+              <select
+                className="custom-select input-group mt-3"
+                value={this.state.editProductForm.type}
+                onChange={(e) =>
+                  this.selectOptionHandler(e, "type", "editProductForm")
+                }
+              >
+                <option defaultValue value="">
+                  Type
+                </option>
+                <option value="Product" key={`edit-product`}>
+                  Product
+                </option>
+                <option value="Package" key={`edit-package`}>
+                  Package
+                </option>
               </select>
               <div className="d-flex justify-content-center mt-4">
                 <ButtonUI

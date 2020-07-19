@@ -7,10 +7,16 @@
   --accent-very-light: #f8ebe6;
 }
 
-.history-container {
+.cart-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 3% 10%;
+}
+
+.cart-table-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
 }

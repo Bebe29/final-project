@@ -26,7 +26,6 @@ class Shop extends Component {
     Axios.get(`${API_URL}/categories`)
       .then((res) => {
         this.setState({ categoryList: res.data });
-        // console.log(this.state.categoryList);
       })
       .catch((err) => {
         console.log(err);
@@ -35,11 +34,11 @@ class Shop extends Component {
 
   getProductData = (id) => {
     if (!id) {
-      Axios.get(`${API_URL}/products`)
+      this.setState({ categoryId: 0 });
+      Axios.get(`${API_URL}/products/all`)
         .then((res) => {
           this.setState({
             productDataList: res.data,
-            categoryId: 0,
             sortBy: "",
           });
         })
@@ -51,7 +50,6 @@ class Shop extends Component {
         .then((res) => {
           this.setState({
             productDataList: res.data,
-            categoryId: id,
             sortBy: "",
           });
         })
@@ -63,49 +61,65 @@ class Shop extends Component {
 
   inputHandler = (e) => {
     const { value } = e.target;
-    this.setState({ searchItem: value });
+    this.setState({
+      searchItem: value,
+      pagination: { ...this.state.pagination, currentPage: 0 },
+    });
   };
 
   sortHandler = (e) => {
-    console.log(this.state.categoryId);
     const { value } = e.target;
-    if (this.state.categoryId === 0) {
-      if (value !== "") {
-        Axios.get(`${API_URL}/products/sort/${value}`)
-          .then((res) => {
-            this.setState({ productDataList: res.data, sortBy: value });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else {
-        Axios.get(`${API_URL}/products`)
-          .then((res) => {
-            this.setState({ productDataList: res.data, sortBy: value });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    } else {
-      if (value !== "") {
-        Axios.get(`${API_URL}/products/sort/${this.state.categoryId}/${value}`)
-          .then((res) => {
-            this.setState({ productDataList: res.data, sortBy: value });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else {
-        Axios.get(`${API_URL}/categories/${this.state.categoryId}/products`)
-          .then((res) => {
-            this.setState({ productDataList: res.data, sortBy: value });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
+    switch (value) {
+      case "nameAsc":
+        return this.setState({
+          productDataList: this.sort("Asc", "productName"),
+          sortBy: value,
+        });
+      case "nameDesc":
+        return this.setState({
+          productDataList: this.sort("Desc", "productName"),
+          sortBy: value,
+        });
+      case "priceAsc":
+        return this.setState({
+          productDataList: this.sort("Asc", "price"),
+          sortBy: value,
+        });
+      case "priceDesc":
+        return this.setState({
+          productDataList: this.sort("Desc", "price"),
+          sortBy: value,
+        });
+      default:
+        return this.getProductData(this.state.categoryId);
     }
+  };
+
+  sort = (sortType, key) => {
+    const sortAsc = (a, b) => {
+      if (a[key] > b[key]) {
+        return 1;
+      } else {
+        return -1;
+      }
+    };
+    const sortDesc = (a, b) => {
+      if (a[key] > b[key]) {
+        return -1;
+      } else {
+        return 1;
+      }
+    };
+    if (sortType === "Asc") {
+      return this.state.productDataList.sort(sortAsc);
+    } else {
+      return this.state.productDataList.sort(sortDesc);
+    }
+  };
+
+  categoryHandler = (id = 0) => {
+    this.setState({ categoryId: id });
+    this.getProductData(id);
   };
 
   renderCategory = () => {
@@ -115,7 +129,7 @@ class Shop extends Component {
         <div
           key={`category-${id}`}
           className="category pr-3"
-          onClick={() => this.getProductData(id)}
+          onClick={() => this.categoryHandler(id)}
         >
           {categoryName}
         </div>
@@ -160,7 +174,7 @@ class Shop extends Component {
           <div className="category-container ml-3">
             <div
               className="category pr-2"
-              onClick={() => this.getProductData()}
+              onClick={() => this.categoryHandler()}
             >
               All
             </div>
@@ -181,7 +195,6 @@ class Shop extends Component {
                 <select
                   className="custom-select input-group"
                   value={this.state.sortBy}
-                  // onChange={(e) => this.sortHandler(e)}
                   onChange={(e) => this.sortHandler(e)}
                 >
                   <option defaultValue value="">

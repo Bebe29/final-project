@@ -19,12 +19,14 @@ import PageNotFound from "./views/screens/PageNotFound/PageNotFound";
 import UserMember from "./views/screens/Admin/UserMember/UserMember";
 import Dashboard from "./views/screens/Admin/Dashboard/Dashboard";
 import Report from "./views/screens/Admin/Report/Report";
-import Payment from "./views/screens/Admin/Payment/Payment";
 import ProductDetail from "./views/screens/Product/ProductDetail";
 import VerifyAccount from "./views/screens/User/VerifyAccount/VerifyAccount";
 import Profile from "./views/screens/User/Profile/Profile";
 import ForgotPassword from "./views/screens/ForgotPassword/ForgotPassword";
 import ResetPassword from "./views/screens/ForgotPassword/ResetPassword";
+import Cart from "./views/screens/User/Cart/Cart";
+import History from "./views/screens/User/History/History";
+import Payment from "./views/screens/Admin/Payment/Payment";
 
 const cookieObj = new Cookie();
 
@@ -50,6 +52,16 @@ class App extends Component {
       );
   };
 
+  renderUserRoute = () => {
+    if (this.props.user.role === "user")
+      return (
+        <>
+          <Route exact path="/user/carts" component={Cart} />
+          <Route exact path="/user/history" component={History} />
+        </>
+      );
+  };
+
   render() {
     if (this.props.user.cookieChecked) {
       return (
@@ -67,6 +79,7 @@ class App extends Component {
             <Route exact path="/forgot" component={ForgotPassword} />
             <Route exact path="/forgot/:username" component={ResetPassword} />
             {this.renderAdminRoute()}
+            {this.renderUserRoute()}
             <Route exact path="*" component={PageNotFound} />
           </Switch>
         </>
