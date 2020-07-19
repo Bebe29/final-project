@@ -18,7 +18,7 @@ class NewItem extends Component {
     Axios.get(`${API_URL}/products/newest`)
       .then((res) => {
         this.setState({ newData: res.data });
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

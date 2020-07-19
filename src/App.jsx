@@ -16,7 +16,6 @@ import Register from "./views/screens/Auth/Register/Register";
 import Login from "./views/screens/Auth/Login/Login";
 import Shop from "./views/screens/Shop/Shop";
 import PageNotFound from "./views/screens/PageNotFound/PageNotFound";
-import UserMember from "./views/screens/Admin/UserMember/UserMember";
 import Dashboard from "./views/screens/Admin/Dashboard/Dashboard";
 import Report from "./views/screens/Admin/Report/Report";
 import ProductDetail from "./views/screens/Product/ProductDetail";
@@ -44,7 +43,6 @@ class App extends Component {
     if (this.props.user.role === "admin")
       return (
         <>
-          <Route exact path="/admin/members" component={UserMember} />
           <Route exact path="/admin/dashboard" component={Dashboard} />
           <Route exact path="/admin/payments" component={Payment} />
           <Route exact path="/admin/reports" component={Report} />

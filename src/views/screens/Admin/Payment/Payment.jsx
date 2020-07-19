@@ -22,7 +22,7 @@ class Payment extends Component {
   getTransactionData = () => {
     Axios.get(`${API_URL}/transactions/admin`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({ transactionData: res.data });
       })
       .catch((err) => {
@@ -94,16 +94,34 @@ class Payment extends Component {
         .subTotalPrice,
     })
       .then((res) => {
-        Axios.get(`${API_URL}/transactionDetails/${id}`, {
-          params: {
-            detail: `${
-              this.state.transactionData[this.state.activeModal].subTotalPrice
-            }`,
-            userId: this.state.transactionData[this.state.activeModal].user.id,
-          },
-        });
-        this.setState({ modalOpen: false });
-        this.getTransactionData();
+        Axios.get(`${API_URL}/transactionDetails/transactionId/${id}`)
+          .then((res) => {
+            // console.log(res.data);
+            let message = "";
+            res.data.forEach((val) => {
+              message += `<h4>${val.product.productName}|${val.quantity}|${val.price}|${val.total}<h4>\n`;
+            });
+            Axios.get(`${API_URL}/transactionDetails/invoice`, {
+              params: {
+                detail: message,
+                subTotalPrice: this.state.transactionData[
+                  this.state.activeModal
+                ].subTotalPrice,
+                userId: this.state.transactionData[this.state.activeModal].user
+                  .id,
+              },
+            })
+              .then((res) => {
+                this.setState({ modalOpen: false });
+                this.getTransactionData();
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);
