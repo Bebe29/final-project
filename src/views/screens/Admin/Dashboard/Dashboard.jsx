@@ -9,6 +9,7 @@ import InputUI from "../../../components/Input/Input";
 import ButtonUI from "../../../components/Button/Button";
 import FileUI from "../../../components/InputFile/InputFile";
 import { API_URL } from "../../../../constants/API";
+import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
 class Dashboard extends Component {
   state = {
@@ -43,11 +44,16 @@ class Dashboard extends Component {
       packageId: 0,
       productId: 0,
     },
+    searchItem: "",
+    pageSize: 3,
+    pagesCount: 0,
+    currentPage: 0,
   };
 
   componentDidMount() {
     this.getCategoryData();
-    this.getAllProductData();
+    this.getManyPage();
+    this.getProductData();
     this.getTypeProduct();
     this.getTypePrackage();
   }
@@ -63,10 +69,27 @@ class Dashboard extends Component {
       });
   };
 
-  getAllProductData = () => {
+  getManyPage = () => {
     Axios.get(`${API_URL}/products/all`)
       .then((res) => {
-        // console.log(res.data);
+        let count = Math.ceil(res.data.length / this.state.pageSize);
+        this.setState({
+          pagesCount: count,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  getProductData = (page = this.state.currentPage) => {
+    Axios.get(`${API_URL}/products`, {
+      params: {
+        pageSize: this.state.pageSize,
+        page: page,
+      },
+    })
+      .then((res) => {
         this.setState({ productDataList: res.data });
       })
       .catch((err) => {
@@ -275,7 +298,7 @@ class Dashboard extends Component {
           },
           activePage: "Show Product",
         });
-        this.getAllProductData();
+        this.getProductData();
         this.getTypeProduct();
         this.getTypePrackage();
       })
@@ -337,7 +360,7 @@ class Dashboard extends Component {
                       selectedFile: null,
                       activePage: "Show Product",
                     });
-                    this.getAllProductData();
+                    this.getProductData();
                     this.getTypeProduct();
                     this.getTypePrackage();
                   })
@@ -363,7 +386,7 @@ class Dashboard extends Component {
                   selectedFile: null,
                   activePage: "Show Product",
                 });
-                this.getAllProductData();
+                this.getProductData();
                 this.getTypeProduct();
                 this.getTypePrackage();
               }
@@ -462,7 +485,7 @@ class Dashboard extends Component {
                     selectedFile: null,
                     modalOpen: false,
                   });
-                  this.getAllProductData();
+                  this.getProductData();
                   this.getTypeProduct();
                   this.getTypePrackage();
                 })
@@ -481,7 +504,7 @@ class Dashboard extends Component {
                     selectedFile: null,
                     modalOpen: false,
                   });
-                  this.getAllProductData();
+                  this.getProductData();
                   this.getTypeProduct();
                   this.getTypePrackage();
                 })
@@ -512,7 +535,7 @@ class Dashboard extends Component {
             ...this.state.activeProduct.filter((item) => item !== idx),
           ],
         });
-        this.getAllProductData();
+        this.getProductData();
         this.getTypeProduct();
         this.getTypePrackage();
       })
@@ -521,11 +544,19 @@ class Dashboard extends Component {
       });
   };
 
+  paginationHandler = (idx) => {
+    this.setState({
+      currentPage: idx,
+    });
+    this.getProductData(idx);
+  };
+
   render() {
+    const { pagesCount, currentPage } = this.state;
     return (
       <div className="dashboard-container">
         <h1 style={{ color: "#645954" }}>Products</h1>
-        <div className="d-flex mt-2 mb-4">
+        <div className="d-flex mt-2 mb-3">
           <ButtonUI
             type="text-dark"
             className="mr-2"
@@ -549,18 +580,53 @@ class Dashboard extends Component {
           </ButtonUI>
         </div>
         {this.state.activePage === "Show Product" ? (
-          <Table hover responsive>
-            <thead>
-              <tr key={`product-head`}>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Category</th>
-              </tr>
-            </thead>
-            <tbody className="product-table">{this.renderProduct()}</tbody>
-          </Table>
+          <>
+            <Table hover responsive>
+              <thead>
+                <tr key={`product-head`}>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody className="product-table">{this.renderProduct()}</tbody>
+            </Table>
+            <div className="pagination">
+              <Pagination size="sm">
+                <PaginationItem disabled={currentPage <= 0}>
+                  <PaginationLink
+                    onClick={() => this.paginationHandler(currentPage - 1)}
+                    previous
+                    href="#"
+                  />
+                </PaginationItem>
+                {[...Array(pagesCount)].map((page, idx) => {
+                  return (
+                    <PaginationItem
+                      active={idx === currentPage}
+                      key={`page-${idx + 1}`}
+                    >
+                      <PaginationLink
+                        onClick={() => this.paginationHandler(idx)}
+                        href="#"
+                      >
+                        {idx + 1}
+                      </PaginationLink>
+                    </PaginationItem>
+                  );
+                })}
+                <PaginationItem disabled={currentPage >= pagesCount - 1}>
+                  <PaginationLink
+                    onClick={() => this.paginationHandler(currentPage + 1)}
+                    next
+                    href="#"
+                  />
+                </PaginationItem>
+              </Pagination>
+            </div>
+          </>
         ) : this.state.activePage === "Add Product" ? (
           <div className="addProduct-container">
             <div className="addProduct-form">

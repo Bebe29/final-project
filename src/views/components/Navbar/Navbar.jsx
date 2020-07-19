@@ -39,9 +39,6 @@ const NavbarUI = ({ user, logoutHandler }) => {
         <Link to="/shop" style={{ textDecoration: "none", color: "inherit" }}>
           <ButtonUI type="text">Shop</ButtonUI>
         </Link>
-        {/* <Link to="" style={{ textDecoration: "none", color: "inherit" }}>
-          <ButtonUI type="text">Contact Us</ButtonUI>
-        </Link> */}
       </div>
       {user.id ? (
         <div className="user-container pr-2">
